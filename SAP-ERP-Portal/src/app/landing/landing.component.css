@@ -1,0 +1,75 @@
+
+#content:hover{
+    background-color: aqua;
+}
+
+  
+.portal_image {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+  
+.portal_middle_text {
+    transition: 1s ease;
+    opacity: 0;
+  }
+
+
+  .portal_header{
+    opacity: 0;
+    font-size: 20px;
+    padding: 16px 16px;
+    /* background-image: url('../../assets/bg-nav-header.jpeg'); */
+  }
+  .portal_inside_header{
+    opacity: 1;
+    margin-top:130px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    background-image: url('../../assets/bg-portal-container.jpeg');
+  }
+.portal_container:hover .portal_image {
+    opacity: 0.3;
+  }
+  
+.portal_container:hover .portal_middle_text {
+    opacity: 1;
+    margin-top:-200px;
+  }
+  
+  .portal_container:hover .portal_header {
+    opacity: 1;
+    transition: .5s ease-in;
+    transition-delay: .5s;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: large;
+  }
+  .portal_container:hover .portal_inside_header{
+    opacity:0;
+    transition: .5s ease-out;
+  }
+  
+.portal_text_content {
+    /* background-color: #233e8b; */
+    background-image: url('../../assets/bg-portal-container.jpeg');
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
+}
+
+#background_img_about{
+    /* background-image: url("../../assets/bg.jpeg"); */
+}
+#background_img{
+  background-image: url('../../assets/bg-new.jpg');
+  height:570px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

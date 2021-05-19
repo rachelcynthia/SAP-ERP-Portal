@@ -1,0 +1,25 @@
+<nav class="navbar fixed-top navbar-light mt-0 pt-0 pb-0" id="background_navbar">
+  <div class="container-fluid navbar-expand-lg mt-0 text-navs">
+    <a class="navbar-brand ms-0" href="#">
+      <img src="../../../assets/Kaar_Logo.png" alt="" style="max-height: 30px;">
+      Kaar Technologies
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarItems"
+      aria-controls="navbarItems" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarItems">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#" aria-current="true" (click)="onClick('portal')" id='text-nav'
+            [ngClass]="selected_tab === 'portal' ?  ['nav-link','text-nav','bg-nav'] : ['nav-link', 'text-navs']">Portals</a>
+        </li>
+
+        <li class="nav-item">
+          <a #cur_el class="nav-link" href="#" (click)="onClick('about')" id="text-nav"
+            [ngClass]="selected_tab === 'about' ? ['nav-link','text-nav', 'bg-nav'] : ['nav-link', 'text-navs']">About</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

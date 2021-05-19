@@ -1,0 +1,17 @@
+<!-- <div class="containter" id="background_img">
+    <div class="d-flex justify-content-evenly pt-3 pb-5">
+        <div class="p-2 bd-highlight">
+            duhfue
+        </div>
+    </div>
+</div> -->
+<div class="d-flex align-items-start">
+    <div class="nav flex-column" id = "vertical_nav">
+        <a *ngFor = "let item of tabItemList" class = "nav-link" href = "#" (click)= "onClickTab(item.id)" [ngClass] = "selected_tab == item.id ? ['bg-nav','text-white'] : ['text-norm']" [innerHTML]=item.text></a>
+    </div>
+    <div>
+        <app-about-company *ngIf="selected_tab == 'comp'"></app-about-company>
+        <app-about-code *ngIf="selected_tab == 'code'"></app-about-code>
+        <app-about-contact *ngIf="selected_tab == 'contact'"></app-about-contact>
+    </div>
+</div>

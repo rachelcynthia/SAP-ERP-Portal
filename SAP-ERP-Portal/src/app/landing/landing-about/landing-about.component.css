@@ -1,0 +1,27 @@
+#vertical_nav{
+    background-image: url('../../../assets/bg-about.jpeg');
+    height:568px;
+    padding-top: 40px;
+}
+
+
+#background_img{
+    background-image: url('../../../assets/bg-about.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:600px;
+}
+
+.bg-nav{
+    background: #c31432;  /* fallback for old browsers */
+    background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-weight: bold;
+    font-family: 'Lucida Handwriting',cursive;
+    font-size:15px;
+}
+
+.text-norm{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    color: #240b36;
+}

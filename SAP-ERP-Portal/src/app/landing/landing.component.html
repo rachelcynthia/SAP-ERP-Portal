@@ -1,0 +1,110 @@
+<app-landing-header (content)="setCurrentTab($event)"></app-landing-header>
+<div *ngIf="current_tab === 'portal'" class="containter" id="background_img">
+    <div class="d-flex justify-content-evenly pt-3 pb-5">
+        <!--Customer-->
+        <div class="p-2 bd-highlight">
+            <div class="portal_container">
+            <p class="portal_header">Customer Portal</p>
+            
+            <div class="card bg-light text-white">
+                <img src="../../assets/customer.png" class="card-img portal_image" alt="..."
+                    style="height: 350px; width: 350px">
+                <div class="card-img-overlay"> 
+                    <p class="card-text portal_header portal_inside_header">
+                        Customer Portal
+                    </p>
+                    <div class="portal_middle_text">
+                    <p class="card-text portal_text_content text-center"><b>Access Customer Dashboard :</b><br/> 
+                        <i>Inquiry Data, Sale Order Data </i>and <i>List of Delivery</i>. 
+                        <br/><br/>
+                        <b>Access Customer Financial Sheet : </b><br/>
+                        <i>Invoice Details, Payments and
+                            Aging, Credit/Debit memo </i> and <i>Overall sales data</i><br/><br/>
+                    <button class="btn btn-primary mt-2"><a routerLink="/clogin" class="nav-link text-white p-0">Login</a></button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+        <!--Vendor-->
+        <div class="p-2 bd-highlight">
+            <div class="portal_container">
+            <p class="portal_header">Vendor Portal</p>
+            
+            <div class="card bg-light text-white">
+                <img src="../../assets/vendor.jpg" class="card-img portal_image" alt="..."
+                    style="height: 350px; width: 350px">
+                <div class="card-img-overlay">
+                    <p class="card-text portal_header portal_inside_header">
+                        Vendor Portal
+                    </p>
+                <div class= "portal_middle_text">
+                    <p class="card-text portal_text_content text-center"><b>Access Customer Dashboard :</b><br/> 
+                        <i>Inquiry Data, Sale Order Data </i>and <i>List of Delivery</i>. 
+                        <br/><br/>
+                        <b>Access Customer Financial Sheet : </b><br/>
+                        <i>Invoice Details, Payments and
+                            Aging, Credit/Debit memo </i> and <i>Overall sales data</i><br/><br/>
+                    <button class="btn btn-primary mt-2"><a href="#" class="nav-link text-white p-0">Login</a></button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+        <!--Employee-->
+        <div class="p-2 bd-highlight">
+            <div class="portal_container">
+            <p class="portal_header">Employee Portal</p>
+            
+            <div class="card bg-light text-white">
+                <img src="../../assets/employee-1.jpg" class="card-img portal_image" alt="..."
+                    style="height: 350px; width: 350px">
+                <div class="card-img-overlay">
+                    <p class="card-text portal_header portal_inside_header">
+                        Employee Portal
+                    </p>
+                <div class ="portal_middle_text">
+                    <p class="card-text portal_text_content text-center"><b>Access Customer Dashboard :</b><br/> 
+                        <i>Inquiry Data, Sale Order Data </i>and <i>List of Delivery</i>. 
+                        <br/><br/>
+                        <b>Access Customer Financial Sheet : </b><br/>
+                        <i>Invoice Details, Payments and
+                            Aging, Credit/Debit memo </i> and <i>Overall sales data</i><br/><br/>
+                    <button class="btn btn-primary mt-2"><a href="#" class="nav-link text-white p-0">Login</a></button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</div>
+</div>
+
+<!--About-->
+
+
+    <app-landing-about *ngIf="current_tab === 'about'"></app-landing-about>
+
+    <!-- <div class="d-flex align-items-start">
+        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <button class="nav-link active" id="v-pills-about-tab" data-bs-toggle="pill" data-bs-target="#v-pills-about" type="button" role="tab" aria-controls="v-pills-about" aria-selected="true">About Company</button>
+          <button class="nav-link" id="v-pills-me-tab" data-bs-toggle="pill" data-bs-target="#v-pills-me" type="button" role="tab" aria-controls="v-pills-me" aria-selected="false">Me</button>
+          <button class="nav-link" id="v-pills-code-tab" data-bs-toggle="pill" data-bs-target="#v-pills-code" type="button" role="tab" aria-controls="v-pills-code" aria-selected="false">Code</button>
+          <button class="nav-link" id="v-pills-contact-tab" data-bs-toggle="pill" data-bs-target="#v-pills-contact" type="button" role="tab" aria-controls="v-pills-contact" aria-selected="false">Contact</button>
+        </div>
+        <div class="tab-content" id="v-pills-tabContent">
+          <div class="tab-pane fade show active" id="v-pills-about" role="tabpanel" aria-labelledby="v-pills-about-tab">About Company</div>
+          <div class="tab-pane fade" id="v-pills-me" role="tabpanel" aria-labelledby="v-pills-me-tab">About Me</div>
+          <div class="tab-pane fade" id="v-pills-code" role="tabpanel" aria-labelledby="v-pills-code-tab">GitHub Code</div>
+          <div class="tab-pane fade" id="v-pills-contact" role="tabpanel" aria-labelledby="v-pill-contact-tab">Contact Me</div>
+        </div>
+      </div> -->
+      
+
+

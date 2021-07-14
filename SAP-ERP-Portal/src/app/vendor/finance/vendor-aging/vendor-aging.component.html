@@ -1,0 +1,91 @@
+<app-vendor-header></app-vendor-header>
+<div class="head" style="padding-top: 50px;">
+    <h3 class="header1">Aging Report</h3>
+    <div *ngIf="flag1==1" style="font-size: 20px;">
+        <span role="button" (click)="onSort()" style="color:white;padding-right:5px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+                class="bi bi-filter-circle-fill" viewBox="0 0 16 16">
+                <path
+                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM3.5 5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1 0-1zM5 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm2 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z" />
+            </svg>
+        </span>
+        <span *ngIf="flag==1"> Sorted Net Days (Descending) </span>
+        <span *ngIf="flag==0"> Sorted Net Days  (Ascending)</span>
+    </div>
+</div>
+<div style="padding-bottom: 10px;padding-left:10px">
+    <button (click)="flag1=1" class="my_btn1">List</button>
+    <button (click)="flag1=0" class="my_btn1">Info</button>
+</div>
+<div *ngIf="flag1==1">
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr class="table-dark">
+            <th>S.No</th>
+            <th>Document Number</th>
+            <th>Today's Date</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of aging_list; let i=index">
+            <td [innerHTML]="i+1"></td>
+            <td [innerHTML]="item['DOC_NUM']*1"></td>
+            <td>{{date  | date:'yyyy-MM-dd'}}</td>
+            <td>
+                <table class="table table-striped my_tab">
+                    <tr>
+                        <th>Baseline Date</th>
+                        <!-- <th>Net Payment Terms Period</th> -->
+                        <th>Net Date</th>
+                        <th>Net Days</th>
+                        <th>Net Days --> Curr Date</th>
+                    </tr>
+                    <tr>
+                        <td [innerHTML]="item['BASE_DATE']"></td>
+                        <!-- <td [innerHTML]="item['NET_PAY']"></td> -->
+                        <td [innerHTML]="item['NET_DATE']"></td>
+                        <td [innerHTML]="item['NET_PAY']"></td>
+                        <td [innerHTML]="item['NET_DAYS']"></td>
+                    </tr>
+                    <tr>
+                        <th>Baseline Date</th>
+                        <!-- <th>Cash Discount 1 Period</th> -->
+                        <th>CD1_DATE</th>
+                        <th>CD1_DAYS</th>
+                        <th>CD1 Days --> Curr Date</th>
+                        
+                    </tr>
+                    <tr>
+                        <td [innerHTML]="item['BASE_DATE']"></td>
+                        <!-- <td [innerHTML]="item['CASH_DIC_1']"></td> -->
+                        <td [innerHTML]="item['CASH_DISC_DATE']"></td>
+                        <td [innerHTML]="item['CASH_DIC_1']"></td>
+                        <td [innerHTML]="item['CASH_DISC_DAYS']"></td>
+                    </tr>
+                    <tr>
+                        <th>Baseline Date</th>
+                        <!-- <th>Cash Discount 2 Period</th> -->
+                        <th>CD2_DATE</th>
+                        <th>CD2_DAYS</th>
+                        <th>CD1 Days --> Curr Date</th>
+                    </tr>
+                    <tr>
+                        <td [innerHTML]="item['BASE_DATE']"></td>
+                        <!-- <td [innerHTML]="item['CASH_DIC_2']"></td> -->
+                        <td [innerHTML]="item['CASH_DISC_DATE2']"></td>
+                        <td [innerHTML]="item['CASH_DIC_2']"></td>
+                        <td [innerHTML]="item['CASH_DISC_DAYS2']"></td>
+                    </tr>
+                    </table>
+            </td>
+            <button class="btn btn-primary text-white bg-dark" style="margin: 10px;"
+                (click)="onClick(item)">More Info</button>
+        </tr>
+    </tbody>
+</table> 
+</div>
+<div *ngIf="flag1==0">
+    <img src="../../../../assets/Intern.jpg">
+</div>

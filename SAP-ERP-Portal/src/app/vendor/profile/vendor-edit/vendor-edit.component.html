@@ -1,0 +1,227 @@
+<app-vendor-header></app-vendor-header>
+<!-- <div *ngIf="selected_item == 'sales'" style="padding-top: 50px;">ydbcfhdxcfvgbhnjm</div> -->
+
+<div class="bg">
+    <h3 class="header1">Edit profile : General Data
+    </h3>
+    <div class="button_top">
+        <a class="nav-link btn" (click)="onSubmit()">Save Details
+            <span style="color: green;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+                    class="bi bi-check2-all" viewBox="0 0 16 16">
+                    <path
+                        d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0l7-7zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0z" />
+                    <path d="m5.354 7.146.896.897-.707.707-.897-.896a.5.5 0 1 1 .708-.708z" />
+                </svg>
+            </span>
+        </a>
+        <a class="nav-link btn"  (click)="onCancel()">Cancel
+            <span style="color:red">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
+                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                  </svg>
+            </span>
+    </a>
+    </div>
+    <div class="d-flex flex-column mb-3">
+        <div class="p-2 bd-highlight">
+            <div class="d-flex justify-content-between borders">
+                <div class="p-2 bd-highlight">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td width>Vendor</td>
+                                <td [innerHTML]="50036"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-2 bd-highlight borders_1">
+            <!-- <app-display-middle></app-display-middle> -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="address-tab" data-bs-toggle="tab" data-bs-target="#address"
+                        type="button" role="tab" aria-controls="address" aria-selected="true">Address</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="control-tab" data-bs-toggle="tab" data-bs-target="#control"
+                        type="button" role="tab" aria-controls="control" aria-selected="false">PO Box</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="market-tab" data-bs-toggle="tab" data-bs-target="#market" type="button"
+                        role="tab" aria-controls="market" aria-selected="false">Communication</button>
+                </li>
+            </ul>
+            <hr class="hr-line">
+            <hr class="hr-line-2">
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="address" role="tabpanel" aria-labelledby="address-tab">
+                    <h4>General Info</h4>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>Title</td>
+                                <input type = "text" [(ngModel)] = "prof['ANRED']">
+                            </tr>
+                            <tr>
+                                <td>First Name</td>
+                                <input type="text" [(ngModel)]="prof['NAME1']">
+                            </tr>
+                            <tr>
+                                <td>Last Name</td>
+                                <input type="text" [(ngModel)]="prof['NAME2']">
+                            </tr>
+                            <tr>
+                                <td>Sex</td>
+                                <input type="text" [(ngModel)]="prof['SEXKZ']">
+                            </tr>
+                            <tr>
+                                <td>DOB</td>
+                                <input type="text" [(ngModel)]="prof['GBDAT']">
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h4>Search Terms</h4>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>Search term 1/2</td>
+                                <input type="text" [(ngModel)]="prof['SORTL']">
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="tab-pane fade" id="address" role="tabpanel" aria-labelledby="address-tab">
+                        <h4>Street Address</h4>
+                        <div class="d-flex justify-content-between">
+
+                            <div class="p-2 bd-highlight">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>House Number</td>
+                                            <input type="text" [(ngModel)]="prof['PSOHS']">
+                                        </tr>
+                                        <tr>
+                                            <td>Street</td>
+                                            <input type="text" [(ngModel)]="prof['PSOST']">
+                                        </tr>
+                                        <tr>
+                                            <td>Country</td>
+                                            <input type="text" [(ngModel)]="prof['LAND1']">
+                                        </tr>
+                                        <tr>
+                                            <td>Postal Code</td>
+                                            <input type="text" [(ngModel)]="prof['POSTL_COD1']">
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="p-2 bd-highlight">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>Building</td>
+                                            <input type="text" [(ngModel)]="prof['ADRNR']">
+                                        </tr>
+                                        <tr>
+                                            <td>City</td>
+                                            <input type="text" [(ngModel)]="prof['MCOD3']">
+                                        </tr>
+                                        <tr>
+                                            <td>Region</td>
+                                            <input type="text" [(ngModel)]="prof['REGIO']">
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="control" role="tabpanel" aria-labelledby="control-tab">
+                    <h4>PO Box Address</h4>
+                    <div class="d-flex justify-content-between">
+                        <div class="p-2 bd-highlight">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td>PO Box</td>
+                                        <input type="text" [(ngModel)]="prof['PFACH']">
+                                    </tr>
+                                    <tr>
+                                        <td>Postal Code</td>
+                                        <input type="text" [(ngModel)]="prof['PSTLZ']">
+                                    </tr>
+                                    <tr>
+                                        <td>Company Postal Code</td>
+                                        <input type="text" [(ngModel)]="prof['PSTL2']">
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <h4>Reference data/area</h4>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>Location No. 1</td>
+                                <input type="text" [(ngModel)]="prof['BBBNR']">
+                            </tr>
+                            <tr>
+                                <td>Location no.2</td>
+                                <input type="text" [(ngModel)]="prof['BBSNR']">
+                            </tr>
+                            <tr>
+                                <td>Industry</td>
+                                <input type="text" [(ngModel)]="prof['BRSCH']">
+                            </tr>
+                            <tr>
+                                <td>Train station</td>
+                                <input type="text" [(ngModel)]="prof['BAHNS']">
+                            </tr>
+                            <tr>
+                                <td>Transport zone</td>
+                                <input type="text" [(ngModel)]="prof['LZONE']">
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="market" role="tabpanel" aria-labelledby="market-tab">
+                    <h4>Communication</h4>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>Language</td>
+                                <input type="text" [(ngModel)]="prof['SPRAS']">
+                            </tr>
+                            <tr>
+                                <td>Telephone</td>
+                                <input type="text" [(ngModel)]="prof['TELF1']">
+                            </tr>
+                            <tr>
+                                <td>Mobile Phone</td>
+                                <input type="text" [(ngModel)]="prof['RPMKR']">
+                            </tr>
+                            <tr>
+                                <td>Fax</td>
+                                <input type="text" [(ngModel)]="prof['TELFX']">
+                            </tr>
+                            <tr>
+                                <td>E-Mail</td>
+                                <input type="text" [(ngModel)]="prof['BRAN1']">
+                            </tr>
+                            <tr>
+                                <td>Comments</td>
+                                <input type="text" [(ngModel)]="prof['BRAN1']">
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

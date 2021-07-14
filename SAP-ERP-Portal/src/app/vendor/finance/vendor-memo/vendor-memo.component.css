@@ -1,0 +1,55 @@
+.head{
+    background-image: linear-gradient(to right, rgba(0,0,0,0.5),rgba(230, 236, 238, 0.5)),url('../../../../assets/bg-list-head-10.jpeg');
+    padding-bottom: 20px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    font-size: 32px;
+    height:160px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.table{
+    text-align: center;
+}
+.my_btn{
+    border:none;
+  background-color:rgb(95,28,104);
+  color: white;
+  display: inline-block;
+  margin-right: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+  padding:5px 15px 5px 15px;
+  font-family:Garamond,serif;
+  font-weight: lighter;
+  font-size: 20px;
+
+}
+.my_btn:hover{
+    background-color: rgba(95,28,104, 0.7);
+}
+
+.bg-card{
+    background-image: linear-gradient(to right, rgba(0,0,0,0.5),rgba(230, 236, 238, 0.5)),url('../../../../assets/bg-list-body-10.jpeg');
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.my_btn1{
+    border:none;
+    background-color:rgb(95,28,104);
+    color: white;
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+    padding:5px 15px 5px 15px;
+    font-family:Garamond,serif;
+    font-weight: lighter;
+    font-size: 20px;
+}

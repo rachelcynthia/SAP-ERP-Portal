@@ -1,0 +1,87 @@
+<div *ngIf="selected_item == 'sales'" style="padding-top: 50px;">ydbcfhdxcfvgbhnjm</div>
+<ul class="nav nav-tabs">
+    <li *ngFor="let item of tab_items">
+        jfdnjfnk
+        <a class="nav-link active" aria-current="page" href="#" [innerHTML]="item.content"
+            (click)="itemSelected(item.id)"></a>
+    </li>
+</ul>
+<div *ngIf="selected_item == 'sales'">
+    <div class="d-flex justify-content-center">
+        <div class="p-2 bd-highlight">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>Required Delivery Date</td>
+                        <td>
+                            <span [innerHTML]="header['DATE_TYPE']"></span>
+                            <span [innerHTML]="header['REQ_DATE_H']"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Valid From</td>
+                        <td [innerHTML]="header['QT_VALID_F']"></td>
+                    </tr>
+                    <tr>
+                        <td>Total Amount</td>
+                        <td [innerHTML]=""></td>
+                    </tr>
+                    <tr>
+                        <td>Payment Terms</td>
+                        <td [innerHTML]=""></td>
+                    </tr>
+                    <tr>
+                        <td>Order Reasons</td>
+                        <td [innerHTML]="header['ORD_REASON']"></td>
+                    </tr>
+                    <tr>
+                        <td>Sales area</td>
+                        <td><span [innerHTML]="items['SALES_ORG']"></span> / <span
+                                [innerHTML]="items['DISTR_CHAN']"></span> / <span
+                                [innerHTML]="items['DIVISION']"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="p-2 bd-highlight">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>Delivery Plant
+                        </td>
+                        <td [innerHTML]="items['PLANT']"></td>
+                    </tr>
+                    <tr>
+                        <td>Valid To</td>
+                        <td [innerHTML]="header['QT_VALID_T']"></td>
+                    </tr>
+                    <tr>
+                        <td>Total Weight</td>
+                        <td [innerHTML]="items['NET_WEIGHT']"></td>
+                    </tr>
+                    <tr>
+                        <td>Pricing Date</td>
+                        <td [innerHTML]="items['REQ_DATE_H']"></td>
+                    </tr>
+                    <tr>
+                        <td>Document Currency</td>
+                        <td [innerHTML]="items['CURRENCY']"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Incoterms</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div *ngIf="selected_item == 'item'"></div>
+<div *ngIf="selected_item == 'det'"></div>
+<div *ngIf="selected_item == 'order'"></div>
+<div *ngIf="selected_item == 'proc'"></div>
+<div *ngIf="selected_item == 'ship'"></div>
+<div *ngIf="selected_item == 'fast'"></div>
+<div *ngIf="selected_item == 'reason'"></div>

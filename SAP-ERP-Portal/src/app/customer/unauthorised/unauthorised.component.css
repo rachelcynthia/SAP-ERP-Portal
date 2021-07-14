@@ -1,0 +1,9 @@
+#bg{
+    background-image: url('../../../assets/cust-unauth.jpeg');
+    height:600px;
+    text-align: center;
+    color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 30px;
+}

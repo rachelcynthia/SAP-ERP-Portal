@@ -1,0 +1,25 @@
+.bg{
+    background-image: linear-gradient(to right, rgba(224, 59, 169, 0.4),rgba(68, 235, 221, 0.5)),url('../../../../assets/bg-about.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:540px;
+    padding-top: 20px;
+
+}
+
+#card{
+    width:50%;
+    margin-left: 300px;
+    padding:20px;
+    background-color: rgba(224, 59, 169, 0.4);
+    align-items: center;
+    color:white
+
+}
+
+.my_btn{
+    background-color: rgba(68, 235, 221, 0.8);
+}
+
+
+

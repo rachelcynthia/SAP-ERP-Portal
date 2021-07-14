@@ -1,0 +1,127 @@
+<app-vendor-header></app-vendor-header>
+
+<div class="bg">
+    <h3 class="header1">Create PO </h3>
+    <div class="button_top">
+        <a class="nav-link btn" (click)="onSubmit()">Save Details
+                <span style="color: green;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+                        class="bi bi-check2-all" viewBox="0 0 16 16">
+                        <path
+                            d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0l7-7zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0z" />
+                        <path d="m5.354 7.146.896.897-.707.707-.897-.896a.5.5 0 1 1 .708-.708z" />
+                    </svg>
+                </span>
+        </a>
+        <a class="nav-link btn"  (click)="onCancel()">Cancel
+            <span style="color:red">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
+                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                  </svg>
+            </span>
+    </a>
+    </div>
+    <div class="d-flex flex-column mb-3">
+        <div class="p-2 bd-highlight">
+            <div class="d-flex justify-content-between borders">
+                <div class="p-2 bd-highlight">
+                    <table class="table table1">
+                        <tbody>
+                            <!-- <tr>
+                                <td width>Purchase Order</td>
+                                <input class="new-td" [(ngModel)]="header['PO_NUMBER']"></input>
+                            </tr> -->
+                            <tr>
+                                <td>Document Date</td>
+                                <input [(ngModel)]="header['DOC_DATE']" name = "header['DOC_TYPE']">
+                            </tr>
+                            <tr>
+                                <td>Document Type</td>
+                                <input [(ngModel)]="header['DOC_TYPE']" name = "header['DOC_TYPE']">
+                            </tr>
+                            <tr>
+                                <td>Document Category</td>
+                                <input [(ngModel)]="header['DOC_CAT']" name = "header['DOC_TYPE']">
+                            </tr>
+                            <tr>
+                                <td>Created By</td>
+                                <input [(ngModel)]="header['CREATED_BY']">
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <table class="table table1">
+                        <tbody>
+                            <tr>
+                                <td>Company Code</td>
+                                <input [(ngModel)]="header['CO_CODE']">
+                            </tr>
+                            <tr>
+                                <td>Purchase Organisation</td>
+                                <input [(ngModel)]="header['PURCH_ORG']">
+                            </tr>
+                            <tr>
+                                <td>Purchase Group</td>
+                                <input [(ngModel)]="header['PUR_GROUP']">
+                            </tr>
+                            
+                            <tr>
+                                <td>Supply Plant</td>
+                                <input [(ngModel)]="header['SUPPL_PLANT']">
+                            </tr>
+                            <!-- <tr>
+                                <td>Language</td>
+                                <input [(ngModel)]="header['LANGUAGE']">
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <h3 style="padding-top:20px;">All Items</h3>
+        <button (click)="addRow()" class="my_btn1">Add Row</button>
+        <button (click)="delRow()" class="my_btn1">Delete Row</button>
+    
+        <div class="p-2 bd-highlight borders_1 table_bt_div">
+            <table class="table_bt">
+                <thead>
+                    <th>Item</th>
+                    <th>Material No.</th>
+                    <th>Short Text</th>
+                    <th>Delivery Date</th>
+                    <th>Item Category</th>
+                    <th>PO Quantity</th>
+                    <th>Order Unit</th>
+                    <th>Net Price</th>
+                    <th>Unit</th>
+                    <th>Material Group</th>
+                    <th>Plant</th>
+                    <th>Storage Location</th>
+                    <th>Address</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let e of [].constructor(tot); let i = index" (click) = onClick(i)>
+                        <td><input [(ngModel)]="items[i]['PO_ITEM']"></td>
+                        <td><input [(ngModel)]="items[i]['MATERIAL']"></td>
+                        <td><input [(ngModel)]="items[i]['SHORT_TEXT']"></td>
+                        <td><input [(ngModel)]="items_s[i]['DELIV_DATE']"></td>
+                        <td><input [(ngModel)]="items[i]['ITEM_CAT']"></td>
+                        <td><input [(ngModel)]="items_s[i]['QUANTITY']"></td>
+                        <td><input [(ngModel)]="items[i]['UNIT']"></td>
+                        <td style="text-align:right"><input [(ngModel)]="items[i]['NET_PRICE']"></td>
+                        <td><input [(ngModel)]="items[i]['PRICE_UNIT']"></td>
+                        <td><input [(ngModel)]="items[i]['MAT_GRP']"></td>
+                        <td><input [(ngModel)]="items[i]['PLANT']"></td>
+                        <td><input [(ngModel)]="items[i]['STORE_LOC']"></td>
+                        <td><input [(ngModel)]="items[i]['ADDRESS']"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- </div> -->

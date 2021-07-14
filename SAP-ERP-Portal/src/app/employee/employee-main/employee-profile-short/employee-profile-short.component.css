@@ -1,0 +1,40 @@
+.main{
+    background-image: linear-gradient(to right, rgba(233, 133, 225, 0.397),rgba(228, 191, 243, 0.7)),url('../../../../assets/bg-emp-prof.jpeg');
+  }
+  .head_text{
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    padding-bottom: 20px;
+  }
+  .head{
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+  
+  .table{
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 10px 5px;
+    font-weight: 500;
+  }
+  
+  .table td{
+    width:180px;
+    overflow:hidden;
+    word-wrap:break-word;
+    border-bottom: 1px solid black;
+  }
+  
+  .table td + td{
+    width:150px;
+    background-color: transparent;
+    border: none;
+    box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+  

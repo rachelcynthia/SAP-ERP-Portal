@@ -1,97 +1,248 @@
-<app-landing-header (content)="setCurrentTab($event)"></app-landing-header>
-<div *ngIf="current_tab === 'portal'" class="containter" id="background_img">
-    <div class="d-flex justify-content-evenly pt-3 pb-5">
-        <!--Customer-->
-        <div class="p-2 bd-highlight">
-            <div class="portal_container">
-            <p class="portal_header">Customer Portal</p>
-            
-            <div class="card bg-light text-white">
-                <img src="../../assets/customer.png" class="card-img portal_image" alt="..."
-                    style="height: 350px; width: 350px">
-                <div class="card-img-overlay"> 
-                    <p class="card-text portal_header portal_inside_header">
-                        Customer Portal
-                    </p>
-                    <div class="portal_middle_text">
-                    <p class="card-text portal_text_content text-center"><b>Access Customer Dashboard :</b><br/> 
-                        <i>Inquiry Data, Sale Order Data </i>and <i>List of Delivery</i>. 
-                        <br/><br/>
-                        <b>Access Customer Financial Sheet : </b><br/>
-                        <i>Invoice Details, Payments and
-                            Aging, Credit/Debit memo </i> and <i>Overall sales data</i><br/><br/>
-                    <button class="btn btn-primary mt-2"><a routerLink="/clogin" class="nav-link text-white p-0">Login</a></button>
-                    </p>
+<app-landing-header></app-landing-header>
+<div id="first-div">
+    <div class="landing-title">Achieve Success With Faster Management</div>
+    <div class="landing-text"> K-Biz effortlessly manages all your business transactions. It has customer, vendor and
+        employee portals.
+        <!-- which provides the status and details about each of your business transactions. -->
+        <br />
+    </div>
+    <button class="landing-button"><a href="#portals">View our portals</a></button>
+</div>
+<div id="portals">
+    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div id="outerWrap">
+                    <div id="layer1"></div>
+                    <div id="layer2">
+                        <div style="padding-left: 10px;">
+                            <span style="color:red; padding-right:5px">
+                                <fa-icon [icon]="faCircle"></fa-icon>
+                            </span>
+                            <span style="color:orange; padding-right:5px">
+                                <fa-icon [icon]="faCircle"></fa-icon>
+                            </span>
+                            <span style="color:blue">
+                                <fa-icon [icon]="faCircle"></fa-icon>
+                            </span>
+                        </div>
+                        <div class="layer-header">Customer Portal</div>
+                        <div class="layer-text">
+                            Provides access customer sales and financial sheet which offers features such as inquiry,
+                            sales order, billing details and many more!
+                        </div>
+                        <div style="text-align:center">
+                            <button class="layer-buttons" (click)="onClick()">Login
+                                <span style="font-size:1em;vertical-align:middle;">
+                                    <fa-icon [icon]="faArrow"></fa-icon>
+                                </span>
+                            </button>
+                            <!-- <button class="layer-buttons">Learn More
+                                <span style="font-size:1em;vertical-align:middle;">
+                                    <fa-icon [icon]="faInfoCircle"></fa-icon>
+                                </span>
+                            </button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div id="outerWrap-1">
+                    <div id="layer1-1"></div>
+                    <div id="layer2-1">
+                        <div style="padding-left: 10px;">
+                            <span style="color:red; padding-right:5px">
+                                <fa-icon [icon]="faCircle"></fa-icon>
+                            </span>
+                            <span style="color:orange; padding-right:5px">
+                                <fa-icon [icon]="faCircle"></fa-icon>
+                            </span>
+                            <span style="color:blue">
+                                <fa-icon [icon]="faCircle"></fa-icon>
+                            </span>
+                        </div>
+                        <div class="layer-header" style="color: white;">Vendor Portal</div>
+                        <div class="layer-text" style="color: white;">
+                            Provides access vendor sales and financial details which offers features such as quotation,
+                            purchase order, goods receipt, billing details and many more!
+                        </div>
+                        <div style="text-align:center">
+                            <button class="layer-buttons" (click)="onVendor()">Login
+                                <span style="font-size:1em;vertical-align:middle;">
+                                    <fa-icon [icon]="faArrow"></fa-icon>
+                                </span>
+                            </button>
+                            <!-- <button class="layer-buttons">Learn More
+                                <span style="font-size:1em;vertical-align:middle;">
+                                    <fa-icon [icon]="faInfoCircle"></fa-icon>
+                                </span>
+                            </button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+
+                <div id="outerWrap-2">
+                    <div id="layer1-2"></div>
+                    <div id="layer2-2">
+                        <div style="padding-left: 10px;">
+                            <span style="color:red; padding-right:5px">
+                                <fa-icon [icon]="faCircle"></fa-icon>
+                            </span>
+                            <span style="color:orange; padding-right:5px">
+                                <fa-icon [icon]="faCircle"></fa-icon>
+                            </span>
+                            <span style="color:blue">
+                                <fa-icon [icon]="faCircle"></fa-icon>
+                            </span>
+                        </div>
+                        <div class="layer-header" style="color: white;">Employee Portal</div>
+                        <div class="layer-text" style="color: white;">
+                            Provides access customer sales and financial sheet which offers features such as inquiry,
+                            sales order, billing details and many more!
+                        </div>
+                        <div style="text-align:center; color:white">
+                            <button class="layer-buttons" (click)="onEmployee()">Login
+                                <span style="font-size:1em;vertical-align:middle;">
+                                    <fa-icon [icon]="faArrow"></fa-icon>
+                                </span>
+                            </button>
+                            <!-- <button class="layer-buttons">Learn More
+                                <span style="font-size:1em;vertical-align:middle;">
+                                    <fa-icon [icon]="faInfoCircle"></fa-icon>
+                                </span>
+                            </button> -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
-
-        <!--Vendor-->
-        <div class="p-2 bd-highlight">
-            <div class="portal_container">
-            <p class="portal_header">Vendor Portal</p>
-            
-            <div class="card bg-light text-white">
-                <img src="../../assets/vendor.jpg" class="card-img portal_image" alt="..."
-                    style="height: 350px; width: 350px">
-                <div class="card-img-overlay">
-                    <p class="card-text portal_header portal_inside_header">
-                        Vendor Portal
-                    </p>
-                <div class= "portal_middle_text">
-                    <p class="card-text portal_text_content text-center"><b>Access Customer Dashboard :</b><br/> 
-                        <i>Inquiry Data, Sale Order Data </i>and <i>List of Delivery</i>. 
-                        <br/><br/>
-                        <b>Access Customer Financial Sheet : </b><br/>
-                        <i>Invoice Details, Payments and
-                            Aging, Credit/Debit memo </i> and <i>Overall sales data</i><br/><br/>
-                    <button class="btn btn-primary mt-2"><a href="#" class="nav-link text-white p-0">Login</a></button>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-
-        <!--Employee-->
-        <div class="p-2 bd-highlight">
-            <div class="portal_container">
-            <p class="portal_header">Employee Portal</p>
-            
-            <div class="card bg-light text-white">
-                <img src="../../assets/employee-1.jpg" class="card-img portal_image" alt="..."
-                    style="height: 350px; width: 350px">
-                <div class="card-img-overlay">
-                    <p class="card-text portal_header portal_inside_header">
-                        Employee Portal
-                    </p>
-                <div class ="portal_middle_text">
-                    <p class="card-text portal_text_content text-center"><b>Access Customer Dashboard :</b><br/> 
-                        <i>Inquiry Data, Sale Order Data </i>and <i>List of Delivery</i>. 
-                        <br/><br/>
-                        <b>Access Customer Financial Sheet : </b><br/>
-                        <i>Invoice Details, Payments and
-                            Aging, Credit/Debit memo </i> and <i>Overall sales data</i><br/><br/>
-                    <button class="btn btn-primary mt-2"><a href="#" class="nav-link text-white p-0">Login</a></button>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
 </div>
-</div>
+
+<app-copyright></app-copyright>
+
+
+
+
+
+<!-- 
+<div *ngIf="current_tab === 'portal'" class="containter">
+    <div class="d-flex justify-content-evenly pt-3 pb-5"> -->
+<!--Customer-->
+<!-- <div class="p-2 bd-highlight">
+            <div class="portal_container">
+                <p class="portal_header">Customer Portal</p>
+
+                <div class="card bg-light text-white">
+                    <img src="../../assets/customer.png" class="card-img portal_image" alt="..."
+                        style="height: 350px; width: 350px">
+                    <div class="card-img-overlay">
+                        <p class="card-text portal_header portal_inside_header">
+                            Customer Portal
+                        </p>
+                        <div class="portal_middle_text">
+                            <p class="card-text portal_text_content text-center"><b>Access Customer Dashboard
+                                    :</b><br />
+                                <i>Inquiry Data, Sale Order Data </i>and <i>List of Delivery</i>.
+                                <br /><br />
+                                <b>Access Customer Financial Sheet : </b><br />
+                                <i>Invoice Details, Payments and
+                                    Aging, Credit/Debit memo </i> and <i>Overall sales data</i><br /><br />
+                                <button class="btn btn-primary mt-2"><a routerLink="/cust/login"
+                                        class="nav-link text-white p-0">Login</a></button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+<!--Vendor-->
+<!-- <div class="p-2 bd-highlight">
+            <div class="portal_container">
+                <p class="portal_header">Vendor Portal</p>
+
+                <div class="card bg-light text-white">
+                    <img src="../../assets/vendor.jpg" class="card-img portal_image" alt="..."
+                        style="height: 350px; width: 350px">
+                    <div class="card-img-overlay">
+                        <p class="card-text portal_header portal_inside_header">
+                            Vendor Portal
+                        </p>
+                        <div class="portal_middle_text">
+                            <p class="card-text portal_text_content text-center"><b>Access Customer Dashboard
+                                    :</b><br />
+                                <i>Inquiry Data, Sale Order Data </i>and <i>List of Delivery</i>.
+                                <br /><br />
+                                <b>Access Customer Financial Sheet : </b><br />
+                                <i>Invoice Details, Payments and
+                                    Aging, Credit/Debit memo </i> and <i>Overall sales data</i><br /><br />
+                                <button class="btn btn-primary mt-2"><a href="#"
+                                        class="nav-link text-white p-0">Login</a></button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+
+<!--Employee-->
+<!-- <div class="p-2 bd-highlight">
+            <div class="portal_container">
+                <p class="portal_header">Employee Portal</p>
+
+                <div class="card bg-light text-white">
+                    <img src="../../assets/employee-1.jpg" class="card-img portal_image" alt="..."
+                        style="height: 350px; width: 350px">
+                    <div class="card-img-overlay">
+                        <p class="card-text portal_header portal_inside_header">
+                            Employee Portal
+                        </p>
+                        <div class="portal_middle_text">
+                            <p class="card-text portal_text_content text-center"><b>Access Customer Dashboard
+                                    :</b><br />
+                                <i>Inquiry Data, Sale Order Data </i>and <i>List of Delivery</i>.
+                                <br /><br />
+                                <b>Access Customer Financial Sheet : </b><br />
+                                <i>Invoice Details, Payments and
+                                    Aging, Credit/Debit memo </i> and <i>Overall sales data</i><br /><br />
+                                <button class="btn btn-primary mt-2"><a href="#"
+                                        class="nav-link text-white p-0">Login</a></button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div> -->
 
 <!--About-->
 
 
-    <app-landing-about *ngIf="current_tab === 'about'"></app-landing-about>
+<!-- <app-landing-about *ngIf="current_tab === 'about'"></app-landing-about> -->
 
-    <!-- <div class="d-flex align-items-start">
+<!-- <div class="d-flex align-items-start">
         <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
           <button class="nav-link active" id="v-pills-about-tab" data-bs-toggle="pill" data-bs-target="#v-pills-about" type="button" role="tab" aria-controls="v-pills-about" aria-selected="true">About Company</button>
           <button class="nav-link" id="v-pills-me-tab" data-bs-toggle="pill" data-bs-target="#v-pills-me" type="button" role="tab" aria-controls="v-pills-me" aria-selected="false">Me</button>
@@ -105,6 +256,3 @@
           <div class="tab-pane fade" id="v-pills-contact" role="tabpanel" aria-labelledby="v-pill-contact-tab">Contact Me</div>
         </div>
       </div> -->
-      
-
-

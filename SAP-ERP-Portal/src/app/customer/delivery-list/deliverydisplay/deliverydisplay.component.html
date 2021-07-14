@@ -1,0 +1,357 @@
+<app-dashboard-header></app-dashboard-header>
+<div class="bg">
+    <h3 class="header1" >Display Delivery : Overview</h3>
+    <div class="d-flex flex-column mb-3">
+        <div class="p-2 bd-highlight">
+        <div class="d-flex justify-content-between borders">
+            <div class="p-2 bd-highlight">
+                <table class="table table1">
+                    <tbody>
+                        <tr>
+                            <td width>Outbound Delivery</td>
+                            <td [innerHTML]="onNum(header['VBELN'])"></td>
+                        </tr>
+                        <tr>
+                            <td>Ship To-Party</td>
+                            <td [innerHTML]="onNum(header['SOLD_TO'])"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="p-2 bd-highlight">
+                <table class="table table1">
+                    <tbody>
+                        <tr>
+                            <td>Document Date</td>
+                            <td [innerHTML]="header['BLDAT'].replace('0000-00-00','Null')"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-2 bd-highlight borders_1">
+        <!-- <app-display-middle></app-display-middle> -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="item-tab" data-bs-toggle="tab" data-bs-target="#item"
+                    type="button" role="tab" aria-controls="item" aria-selected="true">Item Overview</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pick-tab" data-bs-toggle="tab" data-bs-target="#pick" type="button"
+                    role="tab" aria-controls="pick" aria-selected="false">Picking</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="load-tab" data-bs-toggle="tab" data-bs-target="#load" type="button"
+                    role="tab" aria-controls="load" aria-selected="false">Loading</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="transport-tab" data-bs-toggle="tab" data-bs-target="#transport" type="button"
+                    role="tab" aria-controls="transport" aria-selected="false">Transport</button>
+            </li>
+            <!-- <li class="nav-item" role="presentation">
+                <button class="nav-link" id="status-tab" data-bs-toggle="tab" data-bs-target="#status" type="button"
+                    role="tab" aria-controls="status" aria-selected="false">Status Overview</button>
+            </li> -->
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="goods-tab" data-bs-toggle="tab" data-bs-target="#goods" type="button"
+                    role="tab" aria-controls="goods" aria-selected="false">Goods Movement Data</button>
+            </li>
+        </ul>
+        <hr class="hr-line">
+        <hr class="hr-line-2">
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="item" role="tabpanel" aria-labelledby="item-tab">
+                <div class="d-flex justify-content-between">
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tbody>
+                                <tr>
+                                    <td>Planned GI</td>
+                                    <td [innerHTML] ="header['WADAT'].replace('0000-00-00','Null')"></td>
+                                    <td [innerHTML] = "header['WAUHR']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Actual GI Date</td>
+                                    <td [innerHTML]="header['WADAT_IST'].replace('0000-00-00','Null')"></td>
+                                    <td [innerHTML]="header['SPE_WAUHR_IST']"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tbody>
+                                <tr>
+                                    <td>Total Weight</td>
+                                    <td [innerHTML]="header['BTGEW']"></td>
+                                    <td [innerHTML] = "header['GEWEI']"></td>
+                                </tr>
+                                <tr>
+                                    <td>No. of packages</td>
+                                    <td [innerHTML]="onNum(header['ANZPK'])"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pick" role="tabpanel" aria-labelledby="pick-tab">
+                <div class="d-flex justify-content-between">
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tr>
+                                <td>Pick Date/Time</td>
+                                <td [innerHTML]="header['KODAT'].replace('0000-00-00','Null')"></td>
+                                <td [innerHTML]="header['KOUHR']"></td>
+                            </tr>
+                            <tr>
+                                <td>Warehouse No.</td>
+                                <td [innerHTML]="onNum(header['LGNUM'])"></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tr>
+                                <td>Overall Pick Status</td>
+                                <td  [innerHTML]="header['SPE_QI_STATUS']"></td>
+                            </tr>
+                            <tr>
+                                <td>Overall WM Status</td>
+                                <td [innerHTML]="header['SAKES']"></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            <div class="tab-pane fade" id="load" role="tabpanel" aria-labelledby="load-tab">
+                <div class="d-flex justify-content-between">
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tbody>
+                                <tr>
+                                    <td>Loading Date</td>
+                                    <td [innerHTML]="header['LDDAT'].replace('0000-00-00','Null')"></td>
+                                    <td [innerHTML]="header['LDUHR']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Door for Whse</td>
+                                    <td [innerHTML]="onNum(header['LGTOR'])"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tbody>
+                                <tr>
+                                    <td >Loading Point</td>
+                                    <td [innerHTML]="header['VSTEL']"></td>
+                                </tr>
+                                <tr>
+                                    <td >Staging Area</td>
+                                    <td [innerHTML]="header['LGBZO']"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="transport" role="tabpanel" aria-labelledby="transport-tab">
+                <div class="d-flex justify-content-between">
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tbody>
+                                <tr>
+                                    <td>Transportation Planning</td>
+                                    <td [innerHTML]="header['TDDAT'].replace('0000-00-00','Null')"></td>
+                                    <td [innerHTML]="header['TDUHR']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Transport Planned Status</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tbody>
+                                <tr>
+                                    <td>Route</td>
+                                    <td  [innerHTML]="header['ROUTE']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Route Schedule</td>
+                                    <td  [innerHTML]="header['AULWE']"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="status" role="tabpanel" aria-labelledby="status-tab">
+                <h4>Overall Status - Delivery</h4>
+                <table class="table_bt">
+                    <thead>
+                        <th>Delivery</th>
+                        <th>Overall Pickup Status</th>
+                        <th>PS</th>
+                        <th>WM</th>
+                        <th>C</th>
+                        <th>Goods Movement</th>
+                        <th>Bill Status</th>
+                        <th>Total Status</th>
+                        <th>TS</th>
+                        <th>OvCS</th>
+                        <th>POD stat</th>
+                        <th>In Plant</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td [innerHTML]="items[0]['VBELN']"></td>
+                            <td [innerHTML]=""></td>
+                            <td [innerHTML]=""></td>
+                            <td [innerHTML]=""></td>
+                            <td [innerHTML]=""></td>
+                            <td [innerHTML]=""></td>
+                            <td [innerHTML]=""></td>
+                            <td [innerHTML]=""></td>
+                            <td [innerHTML]=""></td>
+                            <td [innerHTML]=""></td>
+                            <td [innerHTML]=""></td>
+                            <td [innerHTML]=""></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4  style="margin-top:50px">Delivery Item Status(All Items)</h4>
+                <table class="table_bt">
+                    <thead>
+                        <th>Item</th>
+                        <th>Material No.</th>
+                        <th>Pick Status</th>
+                        <th>PS</th>
+                        <th>WMStat</th>
+                        <th>Confirmation</th>
+                        <th>GS</th>
+                        <th>Bill Status</th>
+                        <th>IBS</th>
+                        <th>PODStat</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="for item in items">
+                            <td [innerHTML]=""></td>
+                            <td [innerHTML]=""></td>
+                            <td [innerHTML]=""></td>
+                            <td [innerHTML]=""></td>
+                            <td [innerHTML]=""></td>
+                            <td [innerHTML]=""></td>
+                            <td [innerHTML]=""></td>
+                            <td [innerHTML]=""></td>
+                            <td [innerHTML]=""></td>
+                            <td [innerHTML]=""></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="goods" role="tabpanel" aria-labelledby="goods-tab">
+                <div class="d-flex justify-content-between">
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tbody>
+                                <tr>
+                                    <td>Planned Goods Mvmt</td>
+                                    <td [innerHTML]="header['WADAT'].replace('0000-00-00','Null')"></td>
+                                </tr>
+                                <tr>
+                                    <td >Act. Goods Mvmt</td>
+                                    <td [innerHTML]="header['WADAT_IST'].replace('0000-00-00','Null')"></td>                             
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tbody>
+                                <tr>
+                                    <td >Total goods Movement Status</td>
+                                    <td [innerHTML]=""></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h3 style="padding-top:20px;">All Items</h3>
+    <div class="p-2 bd-highlight borders_1 table_bt_div" >
+        <table class="table_bt">
+            <thead>
+                <th>Item</th>
+                <th>Material No.</th>
+                <th>Deliv Quantity</th>
+                <th>Sales Unit</th>
+                <th>Description</th>
+                <th>Customer Material Number</th>
+                <th>Item Category</th>
+                <th>Higher Level Item</th>
+                <th>Plant</th>
+                <th>Batch</th>
+                <th>Amount</th>
+                <th>Currency</th>
+                <th>Net Price</th>
+                <th>Pricing Unit</th>
+                <th>Unit of Measure</th>
+                <th>Material Avail Date</th>
+                <th>Mateial Staging Time</th>
+                <th>Gross Weight</th>
+                <th>Weight Unit</th>
+                <th>Volume</th>
+                <th>Volume Unit</th>
+                <th>Material Group 1</th>
+                <th>Material Group 2</th>
+                <th>Material Group 3</th>
+                <th>Material Group 4</th>
+                <th>Material Group 5</th>
+                <th>Division</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of items;let i=index" >
+                    <td [innerHTML]="onNum(item['POSNR'])"></td>
+                    <td [innerHTML]="onNum(item['MATNR'])"></td>
+                    <td [innerHTML]="item['LFIMG']"></td>
+                    <td [innerHTML]="item['VRKME']"></td>
+                    <td [innerHTML]="item['ARKTX']"></td>
+                    <td [innerHTML]="item['KDMAT']"></td>
+                    <td [innerHTML]="item['PSTYV']"></td>
+                    <td [innerHTML]="onNum(item['UEPOS'])"></td>
+                    <td [innerHTML]="item['WERKS']"></td>
+                    <td [innerHTML]="item['CHARG']"></td>
+                    <td style="text-align:right" [innerHTML]="item['EXBWR']"></td>
+                    <td style="text-align:right"[innerHTML]="item['NETPR']"></td>
+                    <td style="text-align:right"[innerHTML]="item['KPEIN']"></td>
+                    <td style="text-align:right"[innerHTML]="item['KMEIN']"></td>
+                    <td [innerHTML]="onNum(item['GRUND'])"></td>
+                    <td [innerHTML]="item['MBDAT']"></td>
+                    <td [innerHTML]="item['MBUHR']"></td>
+                    <td [innerHTML]="item['BRGEW']"></td>
+                    <td [innerHTML]="item['GEWEI']"></td>
+                    <td [innerHTML]="item['VOLUM']"></td>
+                    <td [innerHTML]="item['VOLEH']"></td>
+                    <td [innerHTML]="item['MVGR1']"></td>
+                    <td [innerHTML]="item['MVGR2']"></td>
+                    <td [innerHTML]="item['MVGR3']"></td>
+                    <td [innerHTML]="item['MVGR4']"></td>
+                    <td [innerHTML]="item['MVGR5']"></td>
+                    <td [innerHTML]="item['SPART']"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+<!-- </div> -->

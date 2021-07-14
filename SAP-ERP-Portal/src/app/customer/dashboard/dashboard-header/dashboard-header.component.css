@@ -1,0 +1,53 @@
+#background_navbar{
+    /* background-image: url('../../../assets/bg-nav-header.jpeg'); */
+    background-color: wheat
+}
+.bg-nav{
+    /* background-image: url('../../../assets/bg-nav-select.jpeg'); */
+    background: #3A1C71;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #FFAF7B, #D76D77, #c67ace); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}    
+#text-nav{
+    color: #240b36;
+    font-weight: bold;
+   
+}
+
+.c_logo{
+    position: absolute;
+    top:0;
+    right:20px;
+    background-color: white;
+}
+
+.logo{
+    position: absolute;
+    top:0;
+}
+.bg-black{
+    background-color: black;
+    padding: 10px;
+}
+
+#navbarSupportedContent{
+    margin-left: 120px;
+}
+
+.dropdown-menu{
+    background-color: black;
+    color: white;
+}
+
+.dropdown-item{
+    color:white;
+}
+
+.dropdown-item:hover{
+    background-color: rgba(128,128,128,0.4);
+}
+
+.nav-item > .nav-link{
+    cursor: pointer;
+}

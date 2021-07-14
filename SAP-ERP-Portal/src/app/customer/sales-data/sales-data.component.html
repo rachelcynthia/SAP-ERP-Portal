@@ -1,0 +1,139 @@
+<app-dashboard-header></app-dashboard-header>
+
+
+<div class="head">
+    <h3 class="header1">Overall Sale Data</h3>
+    <div style="font-size: 20px;">
+    </div>
+</div>
+<div style="padding-bottom: 20px;">
+    <button (click)="flag1=1" class="my_btn1">Predict Sales</button>
+    <button (click)="flag1=0" class="my_btn1">Data and Visualization</button>
+</div>
+<div *ngIf="flag1==1" id="login_bg">
+    <div class="d-flex justify-content-around">
+        <div class="card-bg">
+            <div class="p-2 bd-highlight">
+                <div class="card-body">
+                    <h3 class="card-title text-center">Predict</h3>
+                    <h6>(Based on Product Identifier)</h6>
+                    <div class="card-text">
+                        <form #linearForm="ngForm" (ngSubmit)="onSubmit1(linearForm)">
+                            <div class="mb-3" style="padding-top: 20px;">
+                                <label for="username" class="form-label">Product Identifier</label>
+                                <select name="pid" id="state" class="form-control" [(ngModel)]="pid">
+                                    <option *ngFor="let option of options" [value]="option">{{"P_" + option}}</option>
+                                </select>
+                            </div>
+                            <div class="text-center">
+                                <button class="mt-3 mybutton" type="submit">Predict</button>
+                            </div>
+                            <h6>Prediction of Sales</h6>
+                            <div id="sol1"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-bg">
+            <div class="p-2 bd-highlight">
+                <div class="card-body">
+                    <h3 class="card-title text-center">Predict</h3>
+                    <h6>(Based on Product and Outlet Identifier)</h6>
+                    <div class="card-text">
+                        <form #lassoForm="ngForm" (ngSubmit)="onSubmit2(lassoForm)">
+                            <div class="mb-3" style="padding-top: 20px;">
+                                <label for="username" class="form-label">Product Identifier</label>
+                                <select name="product" id="state" class="form-control" [(ngModel)]="product">
+                                    <option *ngFor="let option of options" [value]="option">{{"P_" + option}}</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="outlet" class="form-label">Outlet Identifier</label>
+                                <select name="outlet" id="state" class="form-control" ngModel>
+                                        <option *ngFor="let option of options1" [value]="option" >{{"O_" + option}}</option>
+                                </select>
+                            </div>
+
+                            <div class="text-center">
+                                <button class="mt-3 mybutton" type="submit">Predict Sales</button>
+                            </div>
+                            <h6>Prediction of Sales</h6>
+                            <div id="sol2"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-bg">
+            <div class="p-2 bd-highlight">
+                <div class="card-body">
+                    <h3 class="card-title text-center">Predict</h3>
+                    <h6>(Based on Product and State Identifier)</h6>
+                    <div class="card-text">
+                        <form #dtForm="ngForm" (ngSubmit)="onSubmit3(dtForm)">
+                            <div class="mb-3" style="padding-top: 20px;">
+                                <label for="pid" class="form-label">Product Identifier</label>
+                                <select name="pid1" id="state" class="form-control" [(ngModel)]="pid1">
+                                    <option *ngFor="let option of options" [value]="option">{{"P_" + option}}</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">State Identifier</label>
+                                <!-- <input type="text" class="form-control" id="state" name="state"
+                                    placeholder="Enter State Category" ngModel> -->
+                                <select name="state" class="form-control" [(ngModel)]="state">
+                                    <option *ngFor="let option of options2" [value]="option">{{option}}</option>
+                                </select>
+                            </div>
+
+                            <div class="text-center">
+                                <button class="mt-3 mybutton" type="submit">Predict Sales</button>
+                            </div>
+                            <h6>Prediction of Sales</h6>
+                            <div id="sol3"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div *ngIf="flag1==0">
+    <h4>Dataset <a href="../../../assets/train_data.csv" target="_blank" class="my_btn2" download="dataset.csv"
+            style="margin-left: 20px;">Download Dataset</a></h4>
+    <hr>
+
+    <div class="img-bg">
+        <img src="../../../assets/dataset.png" width="80%">
+    </div>
+    <div>
+        <h4>2012</h4>
+        <hr>
+        <div class="img-bg">
+            <img src="../../../assets/2012_1.png" width="100%">
+        </div>
+        <div class="img-bg">
+            <img src="../../../assets/2012_2.png" width="100%">
+        </div>
+        <div class="img-bg">
+            <img src="../../../assets/2012_3.png">
+        </div>
+    </div>
+    <div>
+        <h4>2013</h4>
+        <hr>
+        <div class="img-bg">
+            <img src="../../../assets/2013_1.png" width="100%">
+        </div>
+        <div class="img-bg">
+            <img src="../../../assets/2013_2.png" width="100%">
+        </div>
+        <div class="img-bg">
+            <img src="../../../assets/2013_3.png">
+        </div>
+    </div>
+</div>

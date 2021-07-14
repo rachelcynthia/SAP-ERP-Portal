@@ -1,0 +1,22 @@
+<app-vendor-header></app-vendor-header>
+<div id="login_bg">
+    <div class="d-flex justify-content-center">
+        <div class="card bg" style="width: 18rem;">
+            <div class="card-body">
+                <h3 class="card-title text-center">Enter Purchasing Doc Number</h3>
+                <div class="card-text">
+                    <form #salesForm="ngForm" (ngSubmit)="onSubmit(salesForm)">
+                        <div class="mb-3">
+                            <label for="doc_num" class="form-label">Purchasing Document Number :</label>
+                            <input type="text" class="form-control" name="doc_num" placeholder="Enter Purchasing Doc Num"
+                                ngModel>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn mt-3 mybutton" type="submit">Get Details</button>
+                          </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

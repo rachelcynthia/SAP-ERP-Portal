@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-light mt-0 pt-0 pb-0" id="background_navbar">
+<!-- <nav class="navbar fixed-top navbar-light mt-0 pt-0 pb-0" id="background_navbar">
   <div class="container-fluid navbar-expand-lg mt-0 text-navs">
     <a class="navbar-brand ms-0" href="#">
       <img src="../../../assets/Kaar_Logo.png" alt="" style="max-height: 30px;">
@@ -20,6 +20,65 @@
             [ngClass]="selected_tab === 'about' ? ['nav-link','text-nav', 'bg-nav'] : ['nav-link', 'text-navs']">About</a>
         </li>
       </ul>
+    </div>
+  </div>
+</nav> -->
+
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-black">
+  <div class="container-fluid">
+    <div class="logo">
+        <img src="../../../assets/logo_mine.png" alt="Kaar Logo" height="100px" width="100px">
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink = "">Home</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Customer Portal
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Login</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li> -->
+        <li>
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
+        </li>
+      </ul>
+      <span style="font-size: 1.2em; color:white; margin-right:20px">
+        <a routerLink="/code" class="text-white">
+        <fa-icon [icon]="faCode"></fa-icon>
+      </a>
+      </span>
+      <span style="font-size: 1.2em; color:white; margin-right:20px">
+        <a routerLink = "/profile" class="text-white">
+        <fa-icon [icon]="faUser"></fa-icon>
+      </a>
+      </span>
+      <span style="font-size: 1.2em; color:white; margin-right:100px">
+        <a routerLink="/contact" class="text-white">
+        <fa-icon [icon]="faEnvelope"></fa-icon>
+      </a>
+      </span>
+      <div class="c_logo">
+        <a routerLink="/company">
+          <img src="../../../assets/Kaar_Logo.png" alt="Kaar Logo" height="80px">
+        </a>
+      </div>
     </div>
   </div>
 </nav>

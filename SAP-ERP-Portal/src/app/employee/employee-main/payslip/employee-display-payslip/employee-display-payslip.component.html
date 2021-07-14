@@ -1,0 +1,14 @@
+
+<div class="div1">
+
+    <h4>Payslip Details
+        <a [href]="pdfSrc" (click)="onClick()" class="my_btn2">Download PDF</a></h4>
+</div>
+
+<ngx-extended-pdf-viewer [base64Src]="pdf" useBrowserLocale="true"></ngx-extended-pdf-viewer>
+
+
+<!-- <div class="divs" style="height:600px">
+    <pdf-viewer [src]="pdfSrc" [render-text]="true" style="display:block;" class="divs">
+    </pdf-viewer>
+</div> -->

@@ -1,0 +1,42 @@
+<app-vendor-header></app-vendor-header>
+<div id=bg>
+    <div class="top_content">
+        Welcome !
+        <div class="top_header">
+            <fa-icon [icon]="faCubes"></fa-icon> Sales Dashboard
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="d-flex justify-content-around" style="text-align: center;">
+        <div class="p-2 bd-highlight contents">
+            <div style = "font-size: 2em; color:white;">
+                <fa-icon [icon]="faStickyNote"></fa-icon>
+            </div>
+           <h5 style="padding-top: 30px;">Request for Quotation</h5>
+           <a routerLink="/vend/sales/rfq/list" class="nav-link">Get List</a> |
+            <!-- <a routerLink="/cust/inquiry/create" class="nav-link">Create</a> |  -->
+            <a routerLink="/vend/sales/rfq/display-form" class="nav-link">Display</a>
+        </div>
+        <div class="line">|</div>
+        <div class="p-2 bd-highlight contents">
+            <div style = "font-size: 2em; color:white;">
+                <fa-icon [icon]="faStickyNote"></fa-icon>
+            </div>
+           <h5 style="padding-top: 30px;">Purchase Order</h5>
+           <a routerLink="/vend/sales/po/create" class="nav-link">Create</a> | 
+           <a routerLink="/vend/sales/po/list" class="nav-link">Get List</a> | 
+           <!-- <a href="#" class="nav-link">Create</a> |  -->
+           <a routerLink="/vend/sales/po/display-form" class="nav-link">Display</a>
+        </div>
+        <div class="line">|</div>
+        <div class="p-2 bd-highlight contents">
+            <div style = "font-size: 2em; color:white;">
+                <fa-icon [icon]="faStickyNote"></fa-icon>
+            </div>
+           <h5 style="padding-top: 30px;">Goods Receipt</h5>
+           <a routerLink="/vend/sales/gr/list" class="nav-link">Get List</a> | 
+           <a routerLink="/vend/sales/gr/display-form" class="nav-link">Display</a>
+        </div>
+    </div>
+</div>

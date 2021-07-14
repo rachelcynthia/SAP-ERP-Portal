@@ -1,0 +1,268 @@
+<app-vendor-header></app-vendor-header>
+<div class="bg">
+    <h3 class="header1" >Display Material Document : Overview</h3>
+    <div class="d-flex flex-column mb-3">
+        <div class="p-2 bd-highlight">
+        <div class="d-flex justify-content-between borders">
+            <div class="p-2 bd-highlight">
+                <table class="table table1">
+                    <tbody>
+                        <tr>
+                            <td width>Material Document</td>
+                            <td [innerHTML]="onNum(header['MAT_DOC'])"></td>
+                        </tr>
+                        <tr>
+                            <td>Year</td>
+                            <td [innerHTML]="onNum(header['DOC_YEAR'])"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-2 bd-highlight borders_1">
+        <!-- <app-display-middle></app-display-middle> -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="item1-tab" data-bs-toggle="tab" data-bs-target="#item1"
+                    type="button" role="tab" aria-controls="item1" aria-selected="true">General</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pick1-tab" data-bs-toggle="tab" data-bs-target="#pick1" type="button"
+                    role="tab" aria-controls="pick1" aria-selected="false">Vendor</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="load1-tab" data-bs-toggle="tab" data-bs-target="#load1" type="button"
+                    role="tab" aria-controls="load1" aria-selected="false">Doc Info</button>
+            </li>
+        </ul>
+        <hr class="hr-line">
+        <hr class="hr-line-2">
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="item1" role="tabpanel" aria-labelledby="item1-tab">
+                <div class="d-flex justify-content-between">
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tbody>
+                                <tr>
+                                    <td>Document Date</td>
+                                    <td [innerHTML] = "header['DOC_DATE'].replace('0000-00-00','-')"></td>
+                                </tr>
+                                <tr>
+                                    <td>Posting Date</td>
+                                    <td [innerHTML]="header['PSTNG_DATE'].replace('0000-00-00','-')"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tbody>
+                                <tr>
+                                    <td>Transaction Event Type</td>
+                                    <td [innerHTML]="header['TR_EV_TYPE']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Header Text</td>
+                                    <td [innerHTML]="header['HEADER_TXT']"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pick1" role="tabpanel" aria-labelledby="pick1-tab">
+                <div class="d-flex justify-content-between">
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tr>
+                                <td>Vendor</td>
+                                <td [innerHTML]="items[s_i]['VENDOR']"></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            <div class="tab-pane fade" id="load1" role="tabpanel" aria-labelledby="load1-tab">
+                <div class="d-flex justify-content-between">
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tbody>
+                                <tr>
+                                    <td>Entered By</td>
+                                    <td [innerHTML]="header['USERNAME']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Created On</td>
+                                    <td [innerHTML]="header['ENTRY_DATE'].replace('0000-00-00','-')"></td>
+                                    <td [innerHTML]="header['ENTRY_TIME']"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h3 style="padding-top:20px;">All Items</h3>
+    <div class="p-2 bd-highlight borders_1 table_bt_div" >
+        <table class="table_bt">
+            <thead>
+                <th>Line</th>
+                <th>Item</th>
+                <th>Material Short Text</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of items;let i=index;" (click) = "clickedRow(i)" >
+                    <td [innerHTML]="i+1"></td>
+                    <td [innerHTML]="onNum(item['MATDOC_ITM'])"></td>
+                    <td [innerHTML]="item['ITEM_TEXT']"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="p-2 bd-highlight borders_1">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="item-tab" data-bs-toggle="tab" data-bs-target="#item"
+                    type="button" role="tab" aria-controls="item" aria-selected="true">Material</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pick-tab" data-bs-toggle="tab" data-bs-target="#pick" type="button"
+                    role="tab" aria-controls="pick" aria-selected="false">Quantity</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="load-tab" data-bs-toggle="tab" data-bs-target="#load" type="button"
+                    role="tab" aria-controls="load" aria-selected="false">Where</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="transport-tab" data-bs-toggle="tab" data-bs-target="#transport" type="button"
+                    role="tab" aria-controls="transport" aria-selected="false">PO Data</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="goods-tab" data-bs-toggle="tab" data-bs-target="#goods" type="button"
+                    role="tab" aria-controls="goods" aria-selected="false">Account Assignment</button>
+            </li>
+        </ul>
+        <hr class="hr-line">
+        <hr class="hr-line-2">
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="item" role="tabpanel" aria-labelledby="item-tab">
+                <div class="d-flex justify-content-between">
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tbody>
+                                <tr>
+                                    <td>Material</td>
+                                    <td [innerHTML] = "items[s_i]['MATERIAL']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Item Number</td>
+                                    <td [innerHTML]="onNum(items[s_i]['MATDOC_ITM'])"></td>
+                                </tr>
+                                <tr>
+                                    <td>Material Text</td>
+                                    <td [innerHTML]="items[s_i]['ITEM_TEXT']"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pick" role="tabpanel" aria-labelledby="pick-tab">
+                <div class="d-flex justify-content-between">
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tr>
+                                <td>Quantity in Unit of Entry</td>
+                                <td [innerHTML]="header['ENTRY_QNT']"></td>
+                                <td [innerHTML]="header['ENTRY_UOM']"></td>
+                            </tr>
+                            <tr>
+                                <td>Qunatity in PO</td>
+                                <td [innerHTML]="onNum(items[s_i]['PO_PR_QNT'])"></td>
+                                <td [innerHTML]="items[s_i]['ORDERPR_UN']"></td>
+                            </tr>
+                            <tr>
+                                <td>Amount in LC</td>
+                                <td [innerHTML]="items[s_i]['AMOUNT_LC']"></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            <div class="tab-pane fade" id="load" role="tabpanel" aria-labelledby="load-tab">
+                <div class="d-flex justify-content-between">
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tbody>
+                                <tr>
+                                    <td>Movement Type</td>
+                                    <td [innerHTML]="items[s_i]['MOVE_TYPE']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Stock Type</td>
+                                    <td [innerHTML]="items[s_i]['STCK_TYPE']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Plant</td>
+                                    <td [innerHTML]="onNum(items[s_i]['WERKS_D'])"></td>
+                                </tr>
+                                <tr>
+                                    <td>Unloading Point</td>
+                                    <td [innerHTML]="onNum(items[s_i]['UNLOAD_PT'])"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="transport" role="tabpanel" aria-labelledby="transport-tab">
+                <div class="d-flex justify-content-between">
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tbody>
+                                <tr>
+                                    <td>Purchase Order</td>
+                                    <td [innerHTML]="items[s_i]['PO_NUMBER']"></td>
+                                    <td [innerHTML]="onNum(items[s_i]['PO_ITEM'])"></td>
+                                </tr>
+                                <tr>
+                                    <td>Reference Document</td>
+                                    <td [innerHTML]="items[s_i]['REF_DOC']"></td>
+                                    <td [innerHTML]="onNum(items[s_i]['REF_DOC_IT'])"></td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+         
+            <div class="tab-pane fade" id="goods" role="tabpanel" aria-labelledby="goods-tab">
+                <div class="d-flex justify-content-between">
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tbody>
+                                <tr>
+                                    <td>Cost Center</td>
+                                    <td [innerHTML]="items[s_i]['COSTCENTER']"></td>
+                                </tr>
+                                <tr>
+                                    <td >Profit Center</td>
+                                    <td [innerHTML]="items[s_i]['PROFIT_CTR']"></td>                             
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>
+</div>
+<!-- </div> -->

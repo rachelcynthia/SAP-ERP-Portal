@@ -1,0 +1,16 @@
+ #top{
+    width:50%;
+}  
+
+.bg{
+    background-image: linear-gradient(to right, rgba(224, 59, 169, 0.4),rgba(68, 235, 221, 0.5)),url('../../../../assets/bg-about.jpeg');
+    height: 540px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 20px;
+}
+
+.my_btn{
+    background-color: rgba(68, 235, 221, 0.5);
+    font-weight: bolder;
+}

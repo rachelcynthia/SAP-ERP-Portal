@@ -1,0 +1,41 @@
+<app-dashboard-header></app-dashboard-header>
+<div id=bg>
+    <div class="top_content">
+        Welcome !
+        <div class="top_header">
+            <fa-icon [icon]="faCubes"></fa-icon> Sales Dashboard
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="d-flex justify-content-around" style="text-align: center;">
+        <div class="p-2 bd-highlight contents">
+            <div style = "font-size: 2em; color:white;">
+                <fa-icon [icon]="faStickyNote"></fa-icon>
+            </div>
+           <h5 style="padding-top: 30px;">Customer Inquiry</h5>
+           <a routerLink="/cust/inquiry/list" class="nav-link">Get List</a> |
+            <!-- <a routerLink="/cust/inquiry/create" class="nav-link">Create</a> |  -->
+            <a routerLink="/cust/inquiry/display-form" class="nav-link">Display</a>
+        </div>
+        <div class="line">|</div>
+        <div class="p-2 bd-highlight contents">
+            <div style = "font-size: 2em; color:white;">
+                <fa-icon [icon]="faStickyNote"></fa-icon>
+            </div>
+           <h5 style="padding-top: 30px;">Sales Order</h5>
+           <a routerLink="/cust/saleorder/list" class="nav-link">Get List</a> | 
+           <!-- <a href="#" class="nav-link">Create</a> |  -->
+           <a routerLink="/cust/saleorder/display-form" class="nav-link">Display</a>
+        </div>
+        <div class="line">|</div>
+        <div class="p-2 bd-highlight contents">
+            <div style = "font-size: 2em; color:white;">
+                <fa-icon [icon]="faStickyNote"></fa-icon>
+            </div>
+           <h5 style="padding-top: 30px;">List of Delivery</h5>
+           <a routerLink="/cust/deliverylist/list" class="nav-link">Get List</a> |
+           <a routerLink="/cust/deliverylist/display-form" class="nav-link">Display</a>
+        </div>
+    </div>
+</div>

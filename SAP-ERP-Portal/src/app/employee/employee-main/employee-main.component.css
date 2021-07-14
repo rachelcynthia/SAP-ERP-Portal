@@ -1,0 +1,95 @@
+.main{
+    width:100%;
+}
+.flex-content{
+    width: 80%;
+    float:left;
+}
+.flex-main {
+  width: 20%;
+  margin: 0;
+  float:left;
+  /* height: 90vh; */
+  background-color: black;
+  color: white;
+}
+
+.flex-head {
+  list-style-type: none;
+  /* width: 250px; */
+  padding-top: 50px;
+}
+
+.flex-item_1 a {
+  display: block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-decoration: none;
+}
+
+.flex-item_2 a {
+    text-decoration: none;
+  }
+
+.flex-item_1 a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+.flex-item_2 a:hover {
+    text-decoration: underline;
+  }
+
+
+.flex-head-1 {
+  list-style-type: none;
+  padding: 0px 20px;
+}
+
+
+
+.main{
+  background-image: linear-gradient(to right, rgba(233, 133, 225, 0.397),rgba(228, 191, 243, 0.7)),url('../../../assets/bg-emp-prof.jpeg');
+}
+.head_text{
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+  padding-bottom: 20px;
+}
+.head{
+  padding-top: 20px;
+  padding-bottom: 10px;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.table{
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 10px 5px;
+  font-weight: 500;
+}
+
+.table td{
+  width:180px;
+  overflow:hidden;
+  word-wrap:break-word;
+  border-bottom: 1px solid black;
+}
+
+.table td + td{
+  width:150px;
+  background-color: transparent;
+  border: none;
+  box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+.disabled {
+  color: gray;
+  pointer-events: none;
+  cursor: not-allowed;
+}

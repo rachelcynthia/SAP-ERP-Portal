@@ -1,0 +1,138 @@
+<app-employee-header></app-employee-header>
+<div class="main">
+    <div class="flex-main">
+        <ul class="flex-head">
+            <li class="flex-item_1"><a (click)="dash()"><fa-icon [icon]="faCubes"></fa-icon> Dashboard</a></li>
+            <li class="flex-item_1">
+                <b>Leave</b>
+                <ul class="flex-head-1">
+                    <li class="flex-item_1"><a (click) = "select = 1">
+                            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                            </svg> -->
+                            <fa-icon [icon]="faPlus"></fa-icon> Create</a></li>
+                    <li class="flex-item_1"><a (click) = "select = 2;employeeService.paybool = false; employeeService.create = false;employeeService.bool == false;">
+                            <fa-icon [icon]="faCube"></fa-icon> Quota</a></li>
+                    <li class="flex-item_1"><a (click) = "select = 3;employeeService.paybool = false; employeeService.create = false;employeeService.bool == false;">
+                        <fa-icon [icon]="faCircle"></fa-icon> Display</a></li>
+                </ul>
+            </li>
+            <li class="flex-item_2">
+                <b>Payment Details</b>
+                <ul class="flex-head-1">
+                    <li class="flex-item_1"><a  (click) = "select = 4; employeeService.paybool = false;employeeService.create = false;employeeService.bool == false;">
+                       <fa-icon [icon]="faFile"></fa-icon> Basic Pay</a></li>
+                    <li class="flex-item_1"><a  (click) = "select = 5; employeeService.paybool = false;employeeService.create = false;employeeService.bool == false;">
+                        <fa-icon [icon]="faMoney"></fa-icon> Payroll</a></li>
+                    <li class="flex-item_1"><a  (click) = "select = 6; employeeService.paybool=false;employeeService.create = false;employeeService.bool == false;">
+                       <fa-icon [icon]="faMoney1"></fa-icon> Display Payslip</a></li>
+                </ul>
+            </li>
+            <!-- {{dis}} -->
+            <li *ngIf = "!dis" class="flex-item_1 disabled"><a (click)="select = 7;employeeService.create = false;employeeService.paybool = false;"><fa-icon [icon]="faMoney2"></fa-icon> Full and Final Settlement</a></li>
+            <li *ngIf = "dis" class="flex-item_1 "><a (click)="select = 7;employeeService.create = false;employeeService.paybool = false;" ><fa-icon [icon]="faMoney2"></fa-icon> Full and Final Settlement</a></li>
+        </ul>
+    </div>
+    <div class="flex-content">
+        <div *ngIf="select == 0 && employeeService.bool == false">
+            <div class="main">
+                <div class="head">Employee Details</div>
+                <div class="body">
+                    <div class="d-flex justify-content-between">
+                        <div class="p-2 bd-highlight">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td>Title</td>
+                                        <td [innerHTML]="prof['TITEL']"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>First Name</td>
+                                        <td [innerHTML]="prof['VORNA']"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Middle Name</td>
+                                        <td [innerHTML]="prof['MIDNM']"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last Name</td>
+                                        <td [innerHTML]="prof['NACHN']"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Name Prefix</td>
+                                        <td [innerHTML]="prof['VORSW']"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Other Title</td>
+                                        <td [innerHTML]="prof['NAMZU']"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="p-2 bd-highlight">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td>Name Fomat</td>
+                                        <td [innerHTML]="prof['KNZNM']"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Birth Name</td>
+                                        <td [innerHTML]="prof['NAME2']"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Initials</td>
+                                        <td [innerHTML]="prof['INITS']"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Second Title</td>
+                                        <td [innerHTML]="prof['TITL2']"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nickname</td>
+                                        <td [innerHTML]="prof['RUFNM']"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <app-employee-dashboard></app-employee-dashboard>
+
+        </div>
+        <div *ngIf="select == 0 && employeeService.bool == true">
+            <app-employee-project></app-employee-project>
+        </div>
+        <div *ngIf = "select == 1 || employeeService.create == true">
+            <app-employee-leave-create></app-employee-leave-create>
+        </div>
+        <div *ngIf = "select == 2 && employeeService.create == false" >
+            <app-employee-quota></app-employee-quota>
+        </div>
+        <div *ngIf = "select == 3">
+            <app-employee-leave-list></app-employee-leave-list>
+        </div>
+        <div *ngIf = "select == 4">
+            <app-employee-basic-pay></app-employee-basic-pay>
+        </div>
+        <div *ngIf = "select == 5 && employeeService.paybool==false" >
+            <app-employee-payroll></app-employee-payroll>
+        </div>
+        <div *ngIf = "select == 5 && employeeService.paybool==true" >
+            <app-employee-display-payslip></app-employee-display-payslip>
+        </div>
+        <div *ngIf = "select==6  && employeeService.paybool == false">
+            <app-employee-display-form-payslip></app-employee-display-form-payslip>
+        </div>
+        <div *ngIf= "select == 6 && employeeService.paybool == true">
+            <app-employee-display-payslip></app-employee-display-payslip>
+        </div>
+        <div *ngIf = "select == 7">
+            <app-employee-settlement></app-employee-settlement>
+        </div>
+    </div>
+</div>
+<!-- <script src="https://cdn.cai.tools.sap/webchat/webchat.js" channelId="b3b23abc-6716-48ce-b3ba-9b253eecd2f9" token="7428fa8d5725e20c224697ea1c8821cd" id="cai-webchat"></script> -->

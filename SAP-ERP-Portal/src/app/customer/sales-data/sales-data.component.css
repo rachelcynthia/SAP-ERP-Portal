@@ -1,0 +1,88 @@
+.p_2 {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+#login_bg {
+
+  background-image: linear-gradient(
+      to left,
+      rgba(195, 228, 118, 0.1),
+      rgba(223, 201, 9, 0.5)
+    ),
+    url("../../../assets/bg-sale-card.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  height: 530px;
+  padding-top: 50px;
+}
+
+
+
+.mybutton {
+  background-color: rgba(223, 201, 9, 1);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px 10px 20px;
+}
+
+
+
+.card-bg {
+  background-color: white;
+}
+
+
+.my_btn1 {
+  border: none;
+  background-color: rgba(223, 201, 9, 1);
+  color: white;
+  display: inline-block;
+  margin-right: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+  padding: 5px 15px 5px 15px;
+  font-family: Garamond, serif;
+  font-weight: lighter;
+  font-size: 20px;
+}
+
+.my_btn2 {
+    border: none;
+    background-color: rgba(223, 201, 9, 1);
+    color: white;
+    display: block;
+    border-radius: 5px;
+    padding: 5px 15px 5px 15px;
+    font-family: Garamond, serif;
+    font-weight: lighter;
+    font-size: 20px;
+    float:right;
+    text-decoration: none;
+  }
+.head{
+    background-image: linear-gradient(to right, rgba(0,0,0,0.5),rgba(0, 0, 0, 0.3)),url('../../../assets/bg-sale-card.jpeg');
+    padding-bottom: 20px;
+    padding-top: 50px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    font-size: 32px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.img-bg{
+    width: 100%;
+    text-align: center;
+    padding: 20px 0px;
+}
+
+h4{
+    background-image: linear-gradient(to left, rgba(115,3,192,0.5),rgba(236,56,188,0.7));
+    padding:20px 5px;
+}
+
+h6{
+  padding-top: 10px;
+}

@@ -1,0 +1,28 @@
+.my_btn2 {
+  border: none;
+  /* background-color: rgba(223, 201, 9, 1); */
+  color: black;
+  display: block;
+  border-radius: 5px;
+  padding: 5px 15px 5px 15px;
+  font-family: Garamond, serif;
+  font-weight: lighter;
+  font-size: 20px;
+  width: 100%;
+  text-align: right;
+}
+.divs::-webkit-scrollbar { width: 0 !important }
+
+h4 {
+  padding: 20px 5px;
+  text-align: center;
+}
+
+.div1 {
+  background-image: linear-gradient(
+    to left,
+    rgba(115, 3, 192, 0.5),
+    rgba(236, 56, 188, 0.7)
+  );
+  padding-top: 30px;
+}

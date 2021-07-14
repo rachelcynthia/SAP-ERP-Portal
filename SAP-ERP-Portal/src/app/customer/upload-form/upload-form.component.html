@@ -1,0 +1,363 @@
+<app-dashboard-header></app-dashboard-header>
+<div *ngIf="form==true" id="login_bg">
+    <div class="d-flex justify-content-center">
+        <div class="card bg_1" style="width: 18rem;">
+            <div class="card-body">
+                <h3 class="card-title text-center">CUSTOMER MASTER DATA UPLOAD</h3>
+                <div class="card-text">
+                    <form #uploadForm="ngForm" (ngSubmit)="onSubmit(uploadForm)">
+                        <div class="mb-3" style="padding-top: 20px;">
+                            <label for="username" class="form-label">Upload File</label>
+                            <input type="file" class="form-control" id="file" name="file"
+                                placeholder="Upload excel file" (change)="uploadedFile($event)">
+                        </div>
+                        <div class="text-center">
+                            <button class="btn mt-3 mybutton" type="submit">Upload</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="form==false">
+    <div class="bg">
+        <h3 class="header1">Display Customer : General Data
+        </h3>
+        <div class="d-flex flex-column mb-3">
+            <div class="p-2 bd-highlight">
+                <div class="d-flex justify-content-between borders">
+                    <div class="p-2 bd-highlight">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td width>Customer</td>
+                                    <td [innerHTML]="customer['KUNNR']"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-2 bd-highlight borders_1">
+                <!-- <app-display-middle></app-display-middle> -->
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="address-tab" data-bs-toggle="tab" data-bs-target="#address"
+                            type="button" role="tab" aria-controls="address" aria-selected="true">Address</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="control-tab" data-bs-toggle="tab" data-bs-target="#control"
+                            type="button" role="tab" aria-controls="control" aria-selected="false">Control Data</button>
+                    </li>
+                    <!-- <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pay-tab" data-bs-toggle="tab" data-bs-target="#pay" type="button"
+                            role="tab" aria-controls="pay" aria-selected="false">Payment Transactions</button>
+                    </li> -->
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="market-tab" data-bs-toggle="tab" data-bs-target="#market"
+                            type="button" role="tab" aria-controls="market" aria-selected="false">Transport</button>
+                    </li>
+                </ul>
+                <hr class="hr-line">
+                <hr class="hr-line-2">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="address" role="tabpanel" aria-labelledby="address-tab">
+                        <h4>Name</h4>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Title</td>
+                                    <td [innerHTML]="customer['ANRED']"></td>
+                                </tr>
+                                <tr>
+                                    <td>First Name</td>
+                                    <td [innerHTML]="customer['NAME1']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Last Name</td>
+                                    <td [innerHTML]="customer['NAME2']"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h4>Search Terms</h4>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Search term 1/2</td>
+                                    <td [innerHTML]="customer['SORTL']"></td>
+                                    <!-- <td [innerHTML]="customer['SORT2']"></td> -->
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h4>Street Address</h4>
+                        <div class="d-flex justify-content-between">
+
+                            <div class="p-2 bd-highlight">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>Building Code</td>
+                                            <td [innerHTML]="customer['ADRNR']"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Street</td>
+                                            <td [innerHTML]="customer['STRAS']"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Country</td>
+                                            <td [innerHTML]="customer['LAND1']"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Postal Code</td>
+                                            <td [innerHTML]="customer['PSTLZ']"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="p-2 bd-highlight">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>House Number</td>
+                                            <td [innerHTML]="customer['PSOHS']"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>City</td>
+                                            <td [innerHTML]="customer['MCOD3']"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>State</td>
+                                            <td [innerHTML]="customer['REGIO']"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <h4>PO Box Address</h4>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>PO Box</td>
+                                    <td [innerHTML]="customer['PFACH']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Postal Code</td>
+                                    <td [innerHTML]="customer['PSTL2']"></td>
+                                </tr>
+                                <!-- <tr>
+                                    <td>Company Postal Code</td>
+                                    <td [innerHTML]="customer['POST_CODE3']"></td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                        <h4>Communication</h4>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Language</td>
+                                    <td [innerHTML]="customer['SPRAS']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Telephone</td>
+                                    <td [innerHTML]="customer['TELF1']"></td>
+                                    <!-- <td [innerHTML]+="customer['TEL_EXTENS']">+</td> -->
+                                </tr>
+                                <tr>
+                                    <td>Fax</td>
+                                    <td [innerHTML]="customer['TELFX']"></td>
+                                    <!-- <td [innerHTML]+="customer['FAX_EXTENS']"></td> -->
+                                </tr>
+                                <tr>
+                                    <td>Data line</td>
+                                    <td [innerHTML]="customer['DATLT']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Telebox</td>
+                                    <td [innerHTML]="customer['TELBX']"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="control" role="tabpanel" aria-labelledby="control-tab">
+                        <h4>Account control</h4>
+                        <div class="d-flex justify-content-between">
+                            <div class="p-2 bd-highlight">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>Vendor</td>
+                                            <td [innerHTML]="customer['LIFNR']"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Trading Partner</td>
+                                            <td [innerHTML]="customer['VBUND']"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="p-2 bd-highlight">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>Authorization</td>
+                                            <td [innerHTML]="customer['BEGRU']"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Corporate Group</td>
+                                            <td [innerHTML]="customer['KONZS']"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <h4>Reference data/area</h4>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Location No. 1</td>
+                                    <td [innerHTML]="customer['BBBNR']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Location no.2</td>
+                                    <td [innerHTML]="customer['BBSNR']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Industry</td>
+                                    <td [innerHTML]="customer['BRSCH']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Train station</td>
+                                    <td [innerHTML]="customer['BAHNS']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Express station</td>
+                                    <td [innerHTML]="customer['BAHNE']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Transport zone</td>
+                                    <td [innerHTML]="customer['LZONE']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Location code</td>
+                                    <td [innerHTML]="customer['LOCCO']"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h4>Reference data/area</h4>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>ss number</td>
+                                    <td [innerHTML]="customer['STCD1']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Tax Code 2</td>
+                                    <td [innerHTML]="customer['STCD2']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Fiscal Address</td>
+                                    <td [innerHTML]="customer['FISKN']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Country code</td>
+                                    <td [innerHTML]="customer['COUNC']"></td>
+                                </tr>
+                                <tr>
+                                    <td>City Code</td>
+                                    <td [innerHTML]="customer['CITYC']"></td>
+                                </tr>
+                                <tr>
+                                    <td>VAT Reg. No.</td>
+                                    <td [innerHTML]="customer['STCEG']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Tax Jur.</td>
+                                    <td [innerHTML]="customer['TXJCD']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Tax Number 5</td>
+                                    <td [innerHTML]="customer['STCD5']"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="tab-pane fade" id="market" role="tabpanel" aria-labelledby="market-tab">
+                        <h4>Classification</h4>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Nielsen ID</td>
+                                    <td [innerHTML]="customer['NIELS']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Customer class</td>
+                                    <td [innerHTML]="customer['KUKLA']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Regional market</td>
+                                    <td [innerHTML]="customer['RPMKR']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Industry</td>
+                                    <td [innerHTML]="customer['BRSCH']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Industry Code 1</td>
+                                    <td [innerHTML]="customer['BRAN1']"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h4>Key Figures</h4>
+                        <div class="d-flex justify-content-between">
+                            <div class="p-2 bd-highlight">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>Annual Sales</td>
+                                            <td [innerHTML]="customer['UMSAT']"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Employees</td>
+                                            <td [innerHTML]="customer['JMZAH']"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>FI Yea Variant</td>
+                                            <td [innerHTML]="customer['PERIV']"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="p-2 bd-highlight">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>in</td>
+                                            <td [innerHTML]="customer['UMJAH']"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>in</td>
+                                            <td [innerHTML]="customer['JMJAH']"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <h4>Sales Prospecting</h4>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Legal status</td>
+                                    <td [innerHTML]="customer['GFORM']"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

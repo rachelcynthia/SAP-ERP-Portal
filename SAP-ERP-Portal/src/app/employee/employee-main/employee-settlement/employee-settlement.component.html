@@ -1,0 +1,132 @@
+<div class="div1">
+
+    <h4>Employee Settlement Details
+        <a (click)="downloadPDF()" class="my_btn2">Download PDF</a></h4>
+</div>
+<div id = "full">
+<div style="margin: 10px;border: 2px solid black;padding-bottom:30px;margin-bottom:30px">
+    <div style= "text-align: center;">
+        <img src="../../../../assets/logo_mine.png" height = "70px" width = "70px" style="float:left">
+        <h3>Full and Final Settlement</h3>
+        <!-- <img src="../../../../assets/Kaar_Logo.png"  height = "50px" width = "50px" style="float:left"> -->
+    </div>
+    <br>
+    <br>
+    <div class="d-flex flex-column mb-3">
+        <div class="p-2 bd-highlight">
+            <div class="d-flex justify-content-between borders">
+                <div class="p-2 bd-highlight">
+                    <table class="table table1">
+                        <tbody>
+                            <tr>
+                                <td>Terminal Settlement of </td>
+                                <td [innerHTML]="det['NAME']"></td>
+                            </tr>
+                            <tr>
+                                <td>Employee No.</td>
+                                <td [innerHTML]="pernr"></td>
+                            </tr>
+                            <tr>
+                                <td>Date of Joining</td>
+                                <td [innerHTML]="det['BEGIN_DATE']"></td>
+                            </tr>
+                            <tr>
+                                <td>Tenure</td>
+                                <td>{{det["YEARS_OUT"]}} years {{det['MONTHS_OUT']}} months {{det['DAYS_OUT']}} days
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Date of Separation</td>
+                                <td [innerHTML]="det['LEAVING_DATE']"></td>
+                            </tr>
+                            <tr>
+                                <td>Company Code</td>
+                                <td [innerHTML]="det['COMPANY_CODE']"></td>
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <table class="table table1">
+                        <tbody>
+                            <tr>
+                                <td>Job</td>
+                                <td [innerHTML]="det['JOB_TITLE']"></td>
+                            </tr>
+                            <tr>
+                                <td>Position</td>
+                                <td [innerHTML]="det['POSITION_TEXT']"></td>
+                            </tr>
+                            <tr>
+                                <td>Supervisor</td>
+                                <td [innerHTML]="det['SUPERVISOR']"></td>
+                            </tr>
+                            <tr>
+                                <td>Bank Key</td>
+                                <td [innerHTML]="det['BANK_KEY']"></td>
+                            </tr>
+                            <tr>
+                                <td>Bank Account</td>
+                                <td [innerHTML]="det['BANK_ACCOUNT']"></td>
+                            </tr>
+                            <tr>
+                                <td>Company Name</td>
+                                <td [innerHTML]="det['COMPANY_NAME']"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-2 bd-highlight borders_1">
+            <div class="d-flex justify-content-between">
+                <div class="p-2 bd-highlight">
+                    <h4>Earning Information</h4>
+                    <table class="table table_bt">
+                        <tr>
+                            <th>Earning</th>
+                            <th>Amount</th>
+                        </tr>
+                        <tr *ngFor="let item of earnings">
+                            <td>{{item['WT_TEXT']}}</td>
+                            <td>{{item['AMOUNT']}}</td>
+                        </tr>
+                        <tr style="text-align: right;font-weight:bold">
+                            <td>Total Earning</td>
+                            <td>{{det['AMOUNT']}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <h4>Deduction Information</h4>
+                    <table class="table table_bt">
+                        <tr>
+                            <th>Deduction</th>
+                            <th>Amount</th>
+                        </tr>
+                        <tr *ngFor="let item of deductions">
+                            <td>{{item['WT_TEXT']}}</td>
+                            <td>{{item['AMOUNT']}}</td>
+                        </tr>
+                        <tr style="text-align: right;font-weight:bold">
+                            <td>Total Deduction</td>
+                            <td>{{det['AMOUNT_D']}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bot">
+        <b>Net Payable:</b> {{det['NET_TOTAL']}}
+    </div>
+    <div class="bot">
+        I agree with the Final Settlement of {{det['NET_TOTAL']}} and accept the deductions made.
+    </div>
+    <div style="text-align: right;padding-right:10px;font-weight:bold">
+        Signature
+    </div>
+</div>
+</div>

@@ -1,0 +1,161 @@
+<app-dashboard-header></app-dashboard-header>
+<div class="bg">
+    <h3 class="header1">Display Document : Overview</h3>
+    <h4>Data Entry View</h4>
+    <div class="d-flex justify-content-between borders">
+        <div class="p-2 bd-highlight">
+            <table class="table table1">
+                <tbody>
+                    <tr>
+                        <td width>Invoice</td>
+                        <td [innerHTML]="onNum(header['VBELN'])"></td>
+                    </tr>
+                    <tr>
+                        <td>Payer</td>
+                        <td [innerHTML]="onNum(header['KUNRG'])"></td>
+                    </tr>
+                    <tr>
+                        <td>Billing Date</td>
+                        <td [innerHTML]="header['FKDAT'].replace('0000-00-00','Null')"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="p-2 bd-highlight">
+            <table class="table table1">
+                <tbody>
+                    <tr>
+                        <td>Net Value</td>
+                        <td style="text-align:right" [innerHTML]="header['NETWR']"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div *ngIf="flag==0">
+        <button (click)="flag=1" class="my_btn1">Display Items</button>
+        <!-- <button (click)="flag=0" class="my_btn1">Display Billing</button> -->
+    </div>
+    <div *ngIf="flag==1">
+        <h4>All Items</h4>
+        <div class="table_bt_div">
+            <table class="table_bt">
+                <thead>
+                    <th>Item</th>
+                    <th>Description</th>
+                    <th>Billed Quantity</th>
+                    <th>Sales Unit</th>
+                    <th>Net Value</th>
+                    <th>Material No</th>
+                    <th>Cost</th>
+                    <th>Tax Amount</th>
+                    <th>Pricing Date</th>
+                    <th>Service Rendered Date</th>
+                    <th>Pricing Ref. Matl</th>
+                    <th>Net Weight</th>
+                    <th>Gross Weight</th>
+                    <th>Weight Unit</th>
+                    <th>Volume</th>
+                    <th>Volume Unit</th>
+                    <th>Material Group</th>
+                    <th>Prod. hierarchy</th>
+                    <th>EAN Number</th>
+                    <th>Shipping Point</th>
+                    <th>Sales Org</th>
+                    <th>Distribution Channel</th>
+                    <th>Plant</th>
+                    <th>Sales Document</th>
+                    <th>Item</th>
+                    <th>Reference Doc.</th>
+                    <th>Reference Item</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of items" (click)="onClick(item['POSNR'],header['KNUMV'])">
+                        <td [innerHTML]="onNum(item['POSNR'])"></td>
+                        <td [innerHTML]="item['ARKTX']"></td>
+                        <td [innerHTML]="item['FKIMG']"></td>
+                        <td [innerHTML]="item['VRKME']"></td>
+                        <td [innerHTML]="item['NETWR']"></td>
+                        <td [innerHTML]="item['MATNR']"></td>
+                        <td [innerHTML]="item['WAVWR']"></td>
+                        <td [innerHTML]="item['MWSBP']"></td>
+                        <td [innerHTML]="item['PRSDT']"></td>
+                        <td [innerHTML]="item['FBUDA']"></td>
+                        <td [innerHTML]="item['PMATN']"></td>
+                        <td [innerHTML]="item['NTGEW']"></td>
+                        <td [innerHTML]="item['BRGEW']"></td>
+                        <td [innerHTML]="item['GEWEI']"></td>
+                        <td [innerHTML]="item['VOLUM']"></td>
+                        <td [innerHTML]="item['VOLEH']"></td>
+                        <td [innerHTML]="item['MATKL']"></td>
+                        <td [innerHTML]="item['PRODH']"></td>
+                        <td [innerHTML]="item['EANNR']"></td>
+                        <td [innerHTML]="item['VSTEL']"></td>
+                        <td [innerHTML]="item['VKORG_AUFT']"></td>
+                        <td [innerHTML]="item['VTWEG_AUF']"></td>
+                        <td [innerHTML]="item['WERKS']"></td>
+                        <td [innerHTML]="item['AUBEL']"></td>
+                        <td [innerHTML]="item['AUPOS']"></td>
+                        <td [innerHTML]="item['VGBEL']"></td>
+                        <td [innerHTML]="item['VGPOS']"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div *ngIf="flag==0">
+        <h4>Billing Conditions for item <span [innerHTML]="s_i*1"></span></h4>
+        <h6>Pricing Elements</h6>
+        <table class="table_bt">
+            <thead>
+                <th>Active?</th>
+                <th>Condition Type</th>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Currency</th>
+                <th>Pricing Unit</th>
+                <th>Unit of Measure</th>
+                <th>Condition Base Value</th>
+                <th>Condition Value</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of bill_list">
+                    <td>
+                        <div *ngIf="item['CLASS1']== 1; else elseTemplate">
+                            <span style="color: red;">
+                            <fa-icon [icon]="faCircle"></fa-icon>
+                        </span>
+                         </div>
+                         
+                         <ng-template #elseTemplate>
+                            <div>
+                               <span style="color: green;">
+                                <fa-icon [icon]="faSquare"></fa-icon>
+                            </span>
+                            </div>
+                         </ng-template>
+                    </td>
+                    <td [innerHTML]="item['CN_TY']"></td>
+                    <td [innerHTML]="item['NAME']"></td>
+                    <td style="text-align:right"[innerHTML]="item['AMOUNT']"></td>
+                    <td style="text-align:right"[innerHTML]="onCurr(item['Currency'])"></td>
+                    <td style="text-align:right"[innerHTML]="item['PR']"></td>
+                    <td style="text-align:right"[innerHTML]="onUOM(item['UOM'])"></td>
+                    <td style="text-align:right"[innerHTML]="item['B_CN_VAL']"></td>
+                    <td style="text-align:right"[innerHTML]="item['CN_VAL']" [ngClass]="item['classes']"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><b>Total</b></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style ="text-align:right" [innerHTML]="tot_amount.toFixed(2)"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

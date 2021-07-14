@@ -1,0 +1,203 @@
+<app-employee-header></app-employee-header>
+<!-- <div *ngIf="selected_item == 'sales'" style="padding-top: 50px;">ydbcfhdxcfvgbhnjm</div> -->
+
+<div class="bg">
+    <h3 class="header1">Edit Customer : General Data
+    </h3>
+    <div class="button_top">
+        <a class="nav-link btn" (click)="onSubmit()">Save Details
+            <span style="color: green;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+                    class="bi bi-check2-all" viewBox="0 0 16 16">
+                    <path
+                        d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0l7-7zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0z" />
+                    <path d="m5.354 7.146.896.897-.707.707-.897-.896a.5.5 0 1 1 .708-.708z" />
+                </svg>
+            </span>
+        </a>
+        <a class="nav-link btn"  (click)="onCancel()">Cancel
+            <span style="color:red">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
+                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                  </svg>
+            </span>
+    </a>
+    </div>
+    <div class="d-flex flex-column mb-3">
+        <div class="p-2 bd-highlight">
+            <div class="d-flex justify-content-between borders">
+                <div class="p-2 bd-highlight">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td >Name</td>
+                                <input type = "text" [(ngModel)] = "prof['UNAME']">
+                            </tr>
+                            <tr>
+                                <td >Personnel Area</td>
+                                <input type = "text" [(ngModel)] = "prof['WERKS']">
+                            </tr>
+                            <tr>
+                                <td >EE Group</td>
+                                <input type = "text" [(ngModel)] = "prof['PERSG']">
+                            </tr>
+                            <tr>
+                                <td >EE Subgroup</td>
+                                <input type = "text" [(ngModel)] = "prof['PERSK']">
+                            </tr>
+                            <tr>
+                                <td >Start Date</td>
+                                <input type = "text" [(ngModel)] = "prof['BEGDA']">
+                            </tr>
+                            <tr>
+                                <td >End Date</td>
+                                <input type = "text" [(ngModel)] = "prof['ENDDA']">
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-2 bd-highlight borders_1">
+            <!-- <app-display-middle></app-display-middle> -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="address-tab" data-bs-toggle="tab" data-bs-target="#address"
+                        type="button" role="tab" aria-controls="address" aria-selected="true">Name</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="control-tab" data-bs-toggle="tab" data-bs-target="#control"
+                        type="button" role="tab" aria-controls="control" aria-selected="false">Additional Data</button>
+                </li>
+            </ul>
+            <hr class="hr-line">
+            <hr class="hr-line-2">
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="address" role="tabpanel" aria-labelledby="address-tab">
+                    <div class="d-flex justify-content-between">
+
+                        <div class="p-2 bd-highlight">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td>Title</td>
+                                        <input type = "text" [(ngModel)] = "prof1['TITEL']">
+                                    </tr>
+                                    <tr>
+                                        <td>First Name</td>
+                                        <input type = "text" [(ngModel)] = "prof1['VORNA']">
+                                    </tr>
+                                    <tr>
+                                        <td>Middle Name</td>
+                                        <input type = "text" [(ngModel)] = "prof1['MIDNM']">
+                                    </tr>
+                                    <tr>
+                                        <td>Last Name</td>
+                                        <input type = "text" [(ngModel)] = "prof1['NACHN']">
+                                    </tr>
+                                    <tr>
+                                        <td>Name Prefix</td>
+                                        <input type = "text" [(ngModel)] = "prof1['VORSW']">
+                                    </tr>
+                                    <tr>
+                                        <td>Other Title</td>
+                                        <input type = "text" [(ngModel)] = "prof1['NAMZU']">
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="p-2 bd-highlight">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td>Name Fomat</td>
+                                        <input type = "text" [(ngModel)] = "prof1['KNZNM']">
+                                    </tr>
+                                    <tr>
+                                        <td>Birth Name</td>
+                                        <input type = "text" [(ngModel)] = "prof1['NAME2']">
+                                    </tr>
+                                    <tr>
+                                        <td>Initials</td>
+                                        <input type = "text" [(ngModel)] = "prof1['INITS']">
+                                    </tr>
+                                    <tr>
+                                        <td>Second Title</td>
+                                        <input type = "text" [(ngModel)] = "prof1['TITL2']">
+                                    </tr>
+                                    <tr>
+                                        <td>Nickname</td>
+                                        <input type = "text" [(ngModel)] = "prof1['RUFNM']">
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="control" role="tabpanel" aria-labelledby="control-tab">
+                    <h4>Additional Data</h4>
+                    <div class="d-flex justify-content-between">
+                        <div class="p-2 bd-highlight">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td>Birth date</td>
+                                        <input type = "text" [(ngModel)] = "prof['GBDAT']">
+                                    </tr>
+                                    <tr>
+                                        <td>Age</td>
+                                        <input type = "text" [(ngModel)] = "prof['AGE']">
+                                    </tr>
+                                    <tr>
+                                        <td>Birth place</td>
+                                        <input type = "text" [(ngModel)] = "prof['GBORT']">
+                                    </tr>
+                                    <tr>
+                                        <td>City</td>
+                                        <input type = "text" [(ngModel)] = "prof['GBLND']">
+                                    </tr>
+                                    <tr>
+                                        <td>State</td>
+                                        <input type = "text" [(ngModel)] = "prof['GBDEP']">
+                                    </tr>
+                                    <tr>
+                                        <td>Nationality</td>
+                                        <input type = "text" [(ngModel)] = "prof['NATIO']">
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="p-2 bd-highlight">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td>Language</td>
+                                        <input type = "text" [(ngModel)] = "prof['SPRSL']">
+                                    </tr>
+                                    <tr>
+                                        <td>Marital Status</td>
+                                        <input type = "text" [(ngModel)] = "prof['FAMST']">
+                                    </tr>
+                                    <tr>
+                                        <td>Since</td>
+                                        <input type = "text" [(ngModel)] = "prof['FAMDT']">
+                                    </tr>
+                                    <tr>
+                                        <td>No. of children</td>
+                                        <input type = "text" [(ngModel)] = "prof['ANZKD']">
+                                    </tr>
+                                    <tr>
+                                        <td>Religion</td>
+                                        <input type = "text" [(ngModel)] = "prof['KONFE']">
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

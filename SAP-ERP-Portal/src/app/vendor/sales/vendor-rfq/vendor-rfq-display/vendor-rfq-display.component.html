@@ -1,0 +1,91 @@
+<app-vendor-header></app-vendor-header>
+
+<div class="bg">
+    <h3 class="header1">Display Request For Quotation Overview</h3>
+    <div class="d-flex flex-column mb-3">
+        <div class="p-2 bd-highlight">
+            <div class="d-flex justify-content-between borders">
+                <div class="p-2 bd-highlight">
+                    <table class="table table1">
+                        <tbody>
+                            <tr>
+                                <td width>RFQ</td>
+                                <td class="new-td" [innerHTML]="onNum(header['EBELN'])"></td>
+                            </tr>
+                            <tr>
+                                <td>RFQ Type</td>
+                                <td [innerHTML]="onNum(header['BSART'])"></td>
+                            </tr>
+                            <tr>
+                                <td>Vendor</td>
+                                <td [innerHTML]="onNum(header['LIFNR'])"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <table class="table table1">
+                        <tbody>
+                            <tr>
+                                <td>RFQ Date</td>
+                                <td [innerHTML]="header['IHRAN']"></td>
+                            </tr>
+                            <tr>
+                                <td>Quotation Deadline</td>
+                                <td [innerHTML]="header['ANGDT'].replace('0000-00-00','Null')"></td>
+                            </tr>
+                            <tr>
+                                <td>Company Code</td>
+                                <td [innerHTML] = "header['BUKRS']"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <h3 style="padding-top:20px;">All Items</h3>
+        <div class="p-2 bd-highlight borders_1 table_bt_div">
+            <table class="table_bt">
+                <thead>
+                    <th>Item</th>
+                    <th>Material No.</th>
+                    <th>Short Text</th>
+                    <th>RFQ Quantity</th>
+                    <th>RFQ Status</th>
+                    <th>Order Unit</th>
+                    <th>Deliv. Date</th>
+                    <th>Net Price</th>
+                    <th>Per</th>
+                    <th>Order Price Unit</th>
+                    <th>Material Group</th>
+                    <th>Plant</th>
+                    <th>Storage Location</th>
+                    <th>Target Quantity</th>
+                    <th>PO Quantity</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of items;let i=index">
+                        <td [innerHTML]="onNum(item['EBELP'])"></td>
+                        <td [innerHTML]="onNum(item['MATNR'])"></td>
+                        <td [innerHTML]="item['TXZ01']"></td>
+                        <td [innerHTML]="item['KTMNG']"></td>
+                        <td [innerHTML]="item['STATU']"></td>
+                        <td [innerHTML]="item['MEINS']"></td>
+                        <td [innerHTML]="item['PLIFZ']"></td>
+                        <td style="text-align:right" [innerHTML]="item['NETPR']"></td>
+                        <td [innerHTML]="item['PEINH']"></td>
+                        <td [innerHTML] = "item['BPRME']"></td>
+                        <td [innerHTML]="item['MATKL']"></td>
+                        <td [innerHTML]="item['WERKS']"></td>
+                        <td [innerHTML]="item['LGORT']"></td>
+                        <td innerHTML="item['KTMNG']"></td>
+                        <td innerHTML="item['MENGE']"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- </div> -->

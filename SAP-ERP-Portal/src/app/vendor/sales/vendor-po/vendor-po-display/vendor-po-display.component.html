@@ -1,0 +1,115 @@
+<app-vendor-header></app-vendor-header>
+
+<div class="bg">
+    <h3 class="header1">Display Request For Quotation Overview</h3>
+    <div class="d-flex flex-column mb-3">
+        <div class="p-2 bd-highlight">
+            <div class="d-flex justify-content-between borders">
+                <div class="p-2 bd-highlight">
+                    <table class="table table1">
+                        <tbody>
+                            <tr>
+                                <td width>Purchase Order</td>
+                                <td class="new-td" [innerHTML]="onNum(header['PO_NUMBER'])"></td>
+                            </tr>
+                            <tr>
+                                <td>Order Type</td>
+                                <td [innerHTML]="onNum(header['DOC_TYPE'])"></td>
+                            </tr>
+                            <tr>
+                                <td>Vendor</td>
+                                <td [innerHTML]="onNum(header['VENDOR'])"></td>
+                            </tr>
+                            <tr>
+                                <td>Created On</td>
+                                <td [innerHTML]="header['CREATED_ON'].replace('0000-00-00','-')"></td>
+                            </tr>
+                            <tr>
+                                <td>Document Date</td>
+                                <td [innerHTML]="header['DOC_DATE'].replace('0000-00-00','-')"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <table class="table table1">
+                        <tbody>
+                            <tr>
+                                <td>PO Date</td>
+                                <td [innerHTML]="header['IHRAN']"></td>
+                            </tr>
+                            <tr>
+                                <td>Currency</td>
+                                <td [innerHTML]="header['CURRENCY']"></td>
+                            </tr>
+                            <tr>
+                                <td>Company Code</td>
+                                <td [innerHTML]="header['CO_CODE']"></td>
+                            </tr>
+                            <tr>
+                                <td>Created By</td>
+                                <td [innerHTML]="header['CREATED_BY']"></td>
+                            </tr>
+                            <tr>
+                                <td>Language</td>
+                                <td [innerHTML]="header['LANGUAGE']"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <h3 style="padding-top:20px;">All Items</h3>
+        <div class="p-2 bd-highlight borders_1 table_bt_div">
+            <table class="table_bt">
+                <thead>
+                    <th>Item</th>
+                    <th>Material No.</th>
+                    <th>Short Text</th>
+                    <th>Status</th>
+                    <th>Item Category</th>
+                    <th>PO Quantity</th>
+                    <th>Order Unit</th>
+                    <th>Order Per Unit</th>
+                    <th>Net Price</th>
+                    <th>Unit</th>
+                    <th>Netw Weight</th>
+                    <th>Weight Unit</th>
+                    <th>Material Group</th>
+                    <th>Plant</th>
+                    <th>Storage Location</th>
+                    <th>Price Date</th>
+                    <th>Customer</th>
+                    <th>Address</th>
+                    <th>Comment</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of items;let i=index">
+                        <td [innerHTML]="onNum(item['PO_ITEM'])"></td>
+                        <td [innerHTML]="onNum(item['MATERIAL'])"></td>
+                        <td [innerHTML]="item['SHORT_TEXT']"></td>
+                        <td [innerHTML]="item['STATUS']"></td>
+                        <td [innerHTML]="item['ITEM_CAT']"></td>
+                        <td [innerHTML]="item['QUANTITY']"></td>
+                        <td [innerHTML]="item['UNIT']"></td>
+                        <td [innerHTML]="item['ORDERPER_UN']"></td>
+                        <td style="text-align:right" [innerHTML]="item['NET_PRICE']"></td>
+                        <td [innerHTML]="item['PRICE_UNIT']"></td>
+                        <td [innerHTML]="item['NET_WEIGHT']"></td>
+                        <td [innerHTML]="item['WEIGHTUNIT']"></td>
+                        <td [innerHTML]="item['MAT_GRP']"></td>
+                        <td [innerHTML]="item['PLANT']"></td>
+                        <td [innerHTML]="item['STORE_LOC']"></td>
+                        <td [innerHTML]="item['PRICE_DATE']"></td>
+                        <td [innerHTML]="item['CUSTOMER']"></td>
+                        <td [innerHTML]="item['ADDRESS']"></td>
+                        <td [innerHTML]="item['COMMENT']"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- </div> -->

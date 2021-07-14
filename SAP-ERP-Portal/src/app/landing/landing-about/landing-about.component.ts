@@ -19,6 +19,7 @@ export class LandingAboutComponent implements OnInit {
 
   onClickTab(item:string){
     this.selected_tab = item;
+    console.log(item,this.selected_tab);
   }
 
 }

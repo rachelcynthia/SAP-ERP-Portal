@@ -1,0 +1,25 @@
+<div id="login_bg">
+    <div class="d-flex justify-content-center">
+        <div class="card bg" style="width: 18rem;">
+            <div class="card-body">
+                <h3 class="card-title text-center">Details For Getting Payslip</h3>
+                <div class="card-text">
+                    <form #payslipForm="ngForm" (ngSubmit)="onSubmit(payslipForm)">
+                        <div class="mb-3">
+                            <label for="year" class="form-label">Sequence Number</label>
+                            <input type="text" class="form-control" name="year" placeholder="Enter Sequence Number"
+                                ngModel>
+                            <label for="year1" class="form-label">Variant</label>
+                            <input type="text" class="form-control" name="year1" placeholder="Enter Variant"
+                                    ngModel>
+                                
+                        </div>
+                        <div class="text-center">
+                            <button class="btn mt-3 mybutton" type="submit">Get Details</button>
+                          </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

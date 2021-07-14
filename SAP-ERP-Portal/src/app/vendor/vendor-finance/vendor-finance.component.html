@@ -1,0 +1,36 @@
+<app-vendor-header></app-vendor-header>
+<div id=bg>
+    <div class="top_content">
+        Welcome !
+        <div class="top_header">
+            <fa-icon [icon]="faCubes"></fa-icon> Finance Dashboard
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="d-flex justify-content-around" style="text-align: center;">
+        <div class="p-2 bd-highlight contents">
+            <div style = "font-size: 2em; color:white;">
+                <fa-icon [icon]="faStickyNote"></fa-icon>
+            </div>
+           <h5 style="padding-top: 30px;">Invoice</h5>
+           <a routerLink="/vend/finance/invoice/list" class="nav-link">Get List</a> 
+        </div>
+        <div class="line">|</div>
+        <div class="p-2 bd-highlight contents">
+            <div style = "font-size: 2em; color:white;">
+                <fa-icon [icon]="faStickyNote"></fa-icon>
+            </div>
+           <h5 style="padding-top: 30px;">Aging</h5>
+           <a routerLink="/vend/finance/aging/list" class="nav-link">Get List</a>
+        </div>
+        <div class="line">|</div>
+        <div class="p-2 bd-highlight contents">
+            <div style = "font-size: 2em; color:white;">
+                <fa-icon [icon]="faStickyNote"></fa-icon>
+            </div>
+           <h5 style="padding-top: 30px;">Debit/Credit Memo</h5>
+           <a routerLink="/vend/finance/memo/list" class="nav-link">Get List</a> 
+        </div>
+    </div>
+</div>

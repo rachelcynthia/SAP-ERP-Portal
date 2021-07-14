@@ -1,0 +1,73 @@
+
+<hr>
+<div class="main_1_bg">
+<div class="main_1">
+    <div class="arrow_1">
+        <button (click)="prev_proj()" style="color: white;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-caret-left-square" viewBox="0 0 16 16">
+            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+            <path d="M10.205 12.456A.5.5 0 0 0 10.5 12V4a.5.5 0 0 0-.832-.374l-4.5 4a.5.5 0 0 0 0 .748l4.5 4a.5.5 0 0 0 .537.082z"/>
+          </svg></button>
+    </div>
+    <div class="content">
+        <div class="card1" (click)="onClickProj(items[s_i]['WBS'])">
+            <div class="head_text">Project Details {{s_i+1}}</div>
+            <table>
+                <tr>
+                    <td class="c1">WBS ELEMENT:</td>
+                    <td class="c2">{{items[s_i]['WBS']}}</td>
+                </tr>
+                <tr>
+                    <td class="c1">DESCRIPTION:</td>
+                    <td class="c2">{{items[s_i]['DESC']}}</td>
+                </tr>
+                <tr>
+                    <td class="c1">COMPANY CODE:</td>
+                    <td class="c2">{{items[s_i]['COCD']}}</td>
+                </tr>
+                <tr>
+                    <td class="c1">BUSINESS AREA:</td>
+                    <td class="c2">{{items[s_i]['BUS']}}</td>
+                </tr>
+                <tr>
+                    <td class="c1">COST CENTER:</td>
+                    <td class="c2">{{items[s_i]['COST']}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="arrow_2">
+        <button (click)="next_proj()" style="color:white"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-caret-right-square" viewBox="0 0 16 16">
+            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+            <path d="M5.795 12.456A.5.5 0 0 1 5.5 12V4a.5.5 0 0 1 .832-.374l4.5 4a.5.5 0 0 1 0 .748l-4.5 4a.5.5 0 0 1-.537.082z"/>
+          </svg></button>
+    </div>
+    <br>
+    <!-- <div class="sliders">
+        <button *ngFor="let item of counter(n); let i=index" (click)=clickedIndex_proj(i)>-0-</button>
+    </div> -->
+</div>
+</div>
+<!-- <div class="main_2">
+    <div class="arrow_1">
+        <button (click)="p_prev()">prev</button>
+    </div>
+    <div class="content">
+        <div class="card1">
+            Performance Details {{s_i+1}}
+            <p>Appraisal ID: {{perf[s_i]['']}}</p>
+        </div>
+        <div class="card1">
+            Performance Details {{s_i+2}}
+        </div>
+        <div class="card1">
+            Performance Details {{s_i+3}}
+        </div>
+    </div>
+    <div class="arrow_2">
+        <button (click)="p_next()">next</button>
+    </div>
+    <br>
+    <div class="sliders">
+        <div *ngFor="let item of items; let i=index" (click)="p_clickedIndex(i)">-0-</div>
+    </div>
+</div> -->

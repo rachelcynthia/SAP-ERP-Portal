@@ -1,0 +1,63 @@
+<div class="main">
+    <div class="head">Employee Details</div>
+    <div class="body">
+        <div class="d-flex justify-content-between">
+            <div class="p-2 bd-highlight">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>Title</td>
+                            <td [innerHTML]="prof['TITEL']"></td>
+                        </tr>
+                        <tr>
+                            <td>First Name</td>
+                            <td [innerHTML]="prof['VORNA']"></td>
+                        </tr>
+                        <tr>
+                            <td>Middle Name</td>
+                            <td [innerHTML]="prof['MIDNM']"></td>
+                        </tr>
+                        <tr>
+                            <td>Last Name</td>
+                            <td [innerHTML]="prof['NACHN']"></td>
+                        </tr>
+                        <tr>
+                            <td>Name Prefix</td>
+                            <td [innerHTML]="prof['VORSW']"></td>
+                        </tr>
+                        <tr>
+                            <td>Other Title</td>
+                            <td [innerHTML]="prof['NAMZU']"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="p-2 bd-highlight">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>Name Fomat</td>
+                            <td [innerHTML]="prof['KNZNM']"></td>
+                        </tr>
+                        <tr>
+                            <td>Birth Name</td>
+                            <td [innerHTML]="prof['NAME2']"></td>
+                        </tr>
+                        <tr>
+                            <td>Initials</td>
+                            <td [innerHTML]="prof['INITS']"></td>
+                        </tr>
+                        <tr>
+                            <td>Second Title</td>
+                            <td [innerHTML]="prof['TITL2']"></td>
+                        </tr>
+                        <tr>
+                            <td>Nickname</td>
+                            <td [innerHTML]="prof['RUFNM']"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

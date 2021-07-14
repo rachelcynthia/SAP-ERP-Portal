@@ -1,4 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { faEnvelopeOpenText,faUser,faCode } from '@fortawesome/free-solid-svg-icons'
+
 
 @Component({
   selector: 'app-landing-header',
@@ -6,6 +8,10 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./landing-header.component.css']
 })
 export class LandingHeaderComponent implements OnInit {
+
+  faEnvelope = faEnvelopeOpenText;
+  faUser = faUser;
+  faCode =faCode;
 
   @Output() content = new EventEmitter<string>();
   constructor() { }

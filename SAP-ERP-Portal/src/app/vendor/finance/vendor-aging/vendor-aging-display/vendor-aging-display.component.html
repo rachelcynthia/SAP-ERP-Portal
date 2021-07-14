@@ -1,0 +1,124 @@
+<app-vendor-header></app-vendor-header>
+<div class="bg">
+    <h3 class="header1">Display Document : Overview</h3>
+    <h4>Data Entry View</h4>
+    <div class="d-flex justify-content-between borders">
+        <div class="p-2 bd-highlight">
+            <table class="table table1">
+                <tbody>
+                    <tr>
+                        <td width>Document Number</td>
+                        <td [innerHTML]="onNum(header['BELNR'])"></td>
+                    </tr>
+                    <tr>
+                        <td>Document Date</td>
+                        <td [innerHTML]="header['BLDAT'].replace('0000-00-00','Null')"></td>
+                    </tr>
+                    <tr>
+                        <td>Reference</td>
+                        <td [innerHTML]="onNum(header['XBLNR'])"></td>
+                    </tr>
+                    <tr>
+                        <td>Currency</td>
+                        <td [innerHTML]="header['WAERS']"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="p-2 bd-highlight">
+            <table class="table table1">
+                <tbody>
+                    <tr>
+                        <td>Company Code</td>
+                        <td [innerHTML]="onNum(header['BUKRS'])"></td>
+                    </tr>
+                    <tr>
+                        <td>Posting Date</td>
+                        <td [innerHTML]="header['BUDAT'].replace('0000-00-00','Null')"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="p-2 bd-highlight">
+            <table class="table table1">
+                <tbody>
+                    <tr>
+                        <td>Fiscal Year</td>
+                        <td [innerHTML]="header['GJAHR']"></td>
+                    </tr>
+                    <tr>
+                        <td>Period</td>
+                        <td [innerHTML]="header['MONAT']"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <h4>Ledger OL</h4>
+    <div class="d-flex justify-content-between borders">
+        <div class="p-2 bd-highlight">
+            <table class="table table1">
+                <tbody>
+                    <tr>
+                        <td width>Document Number</td>
+                        <td [innerHTML]="onNum(header['BELNR'])"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="p-2 bd-highlight">
+            <table class="table table1">
+                <tbody>
+                    <tr>
+                        <td width>Fiscal Year</td>
+                        <td [innerHTML]="header['GJAHR']"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="p-2 bd-highlight">
+            <table class="table table1">
+                <tbody>
+                    <tr>
+                        <td width>Period</td>
+                        <td [innerHTML]="header['MONAT']"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <h4>All Items</h4>
+    <table class="table_bt">
+        <thead>
+            <th>S.No</th>
+            <th>Company Code</th>
+            <th>Line Item</th>
+            <th>Postiing Key</th>
+            <th>Special G/L index</th>
+            <th>Cost Center</th>
+            <th>Account</th>
+            <th>Amount</th>
+            <th>Currency</th>
+            <th>Amount in LC</th>
+            <th>Tx</th>
+            <th>Profit Center</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of items;let i = index">
+                <td>{{i+1}}</td>
+                <td [innerHTML]="onNum(item['BUKRS'])"></td>
+                <td [innerHTML]="onNum(item['BUZEI'])"></td>
+                <td [innerHTML]="onNum(item['BSCHL'])"></td>
+                <td [innerHTML]="item['UMSKZ']"></td>
+                <td [innerHTML]="item['KOSTL']"></td>
+                <td [innerHTML]="onNum(item['HKONT'])"></td>
+                <td style="text-align:right" [innerHTML]="item['WRBTR']"></td>
+                <td style="text-align:right" [innerHTML]="item['PSWSL']"></td>
+                <td style="text-align:right" [innerHTML]="item['DMBTR']"></td>
+                <td [innerHTML]="item['MWSKZ']"></td>
+                <td [innerHTML]="item['PRCTR']"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

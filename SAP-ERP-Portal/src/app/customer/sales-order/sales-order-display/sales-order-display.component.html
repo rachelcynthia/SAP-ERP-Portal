@@ -1,0 +1,421 @@
+<app-dashboard-header></app-dashboard-header>
+<!-- <div *ngIf="selected_item == 'sales'" style="padding-top: 50px;">ydbcfhdxcfvgbhnjm</div> -->
+
+<div class="bg">
+    <h3 class="header1" >Display Sale Order Overview</h3>
+    <div class="d-flex flex-column mb-3">
+        <div class="p-2 bd-highlight">
+        <div class="d-flex justify-content-between borders">
+            <div class="p-2 bd-highlight">
+                <table class="table table1">
+                    <tbody>
+                        <tr>
+                            <td width>Inquiry</td>
+                            <td class="new-td" [innerHTML]="onNum(header['DOC_NUMBER'])"></td>
+                        </tr>
+                        <tr>
+                            <td>Sold To-Party</td>
+                            <td [innerHTML]="onNum(header['SOLD_TO'])"></td>
+                        </tr>
+                        <tr>
+                            <td>Ship To Paty</td>
+                            <td [innerHTML]="onNum(header['SOLD_TO'])"></td>
+                        </tr>
+                        <tr>
+                            <td>PO_Number</td>
+                            <td [innerHTML]="header['PURCH_NO']"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="p-2 bd-highlight">
+                <table class="table table1">
+                    <tbody>
+                        <tr>
+                            <td>Net value</td>
+                            <td [innerHTML]="header['NET_VAL_HD']"></td>
+                            <td [innerHTML]="header['CURRENECY']"></td>
+                        </tr>
+                        <tr>
+                            <td>PO_Date</td>
+                            <td [innerHTML]="header['PURCH_DATE'].replace('0000-00-00','Null')"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-2 bd-highlight borders_1">
+        <!-- <app-display-middle></app-display-middle> -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="sales-tab" data-bs-toggle="tab" data-bs-target="#sales"
+                    type="button" role="tab" aria-controls="sales" aria-selected="true">Sales</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="item-tab" data-bs-toggle="tab" data-bs-target="#item" type="button"
+                    role="tab" aria-controls="item" aria-selected="false">Item Overview</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="detail-tab" data-bs-toggle="tab" data-bs-target="#detail" type="button"
+                    role="tab" aria-controls="detail" aria-selected="false">Item Detail</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="order-tab" data-bs-toggle="tab" data-bs-target="#order" type="button"
+                    role="tab" aria-controls="order" aria-selected="false">Ordering Party</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="proc-tab" data-bs-toggle="tab" data-bs-target="#proc" type="button"
+                    role="tab" aria-controls="proc" aria-selected="false">Procurement</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="ship-tab" data-bs-toggle="tab" data-bs-target="#ship" type="button"
+                    role="tab" aria-controls="ship" aria-selected="false">Shipping</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="fast-tab" data-bs-toggle="tab" data-bs-target="#fast" type="button"
+                    role="tab" aria-controls="fast" aria-selected="false">Fast Data Entry</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="reject-tab" data-bs-toggle="tab" data-bs-target="#reject" type="button"
+                    role="tab" aria-controls="reject" aria-selected="false">Reason For Rejection</button>
+            </li>
+        </ul>
+        <hr class="hr-line">
+        <hr class="hr-line-2">
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="sales" role="tabpanel" aria-labelledby="sales-tab">
+                <div class="d-flex justify-content-between">
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tbody>
+                                <tr>
+                                    <td>Required Delivery Date</td>
+                                    <td [innerHTML]="header['DATE_TYPE']"></td>
+                                    <td [innerHTML]="header['DOC_DATE'].replace('0000-00-00','Null')"></td>
+                                </tr>
+                                <tr>
+                                    <td>Delivery Block</td>
+                                    <td [innerHTML] = "header['DLV_BLOCK']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Billing Block</td>
+                                    <td [innerHTML] = "items[s_i]['BILL_BLOCK']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Payment Card</td>
+                                    <td [innerHTML] = "header['NUM_PAY_CA']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Card Verif. Code</td>
+                                    <td [innerHTML] = "items[s_i]['CFOP_CODE']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Order Reasons</td>
+                                    <td [innerHTML]="header['ORD_REASON']"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tbody>
+                                <tr>
+                                    <td>Delivery Plant
+                                    </td>
+                                    <td [innerHTML]="items['PLANT']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Total Weight</td>
+                                    <td [innerHTML]="items[s_i]['NET_WEIGHT']"></td>
+                                    <td [innerHTML]="items[s_i]['UNIT_OF_WT']"></td>
+                                </tr>
+                                <tr>
+                                    <td >Volume</td>
+                                    <td [innerHTML]="items[s_i]['VOLUME']"></td>
+                                    <td [innerHTML]="items[s_i]['VOLUMEUNIT']"></td>
+                                </tr>               
+                                <tr>
+                                    <td>Pricing Date</td>
+                                    <td>{{date | date: 'yyyy-MM-dd'}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Expiry Date</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Incoterms</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="item" role="tabpanel" aria-labelledby="item-tab">
+                <div class="d-flex justify-content-between">
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tr>
+                                <td>Req. Deliv Date</td>
+                                <td>{{header['DATE_TYPE']}}</td>
+                                <td>{{header['REQ_DATE_H'].replace('0000-00-00','Null')}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tr>
+                                <td>Delivery Plant</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="detail" role="tabpanel" aria-labelledby="detail-tab">
+                <div class="d-flex justify-content-between">
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tbody>
+                                <tr>
+                                    <td>Sales Document Item</td>
+                                    <td [innerHTML]="items[s_i]['MATERIAL']*1"></td>
+                                </tr>
+                                <tr>
+                                    <td >Material No.</td>
+                                    <td [innerHTML]="items[s_i]['ITM_NUMBER']*1"></td>
+                                </tr>
+                                <tr>
+                                    <td >Order Quantity</td>
+                                    <td [innerHTML] = "items[s_i]['REQ_QTY']"></td>
+                                    <td [innerHTML] = "items[s_i]['SALES_UNIT']"></td>
+                                </tr>
+                                <tr>
+                                    <td >First Delivery Date</td>
+                                    <td [innerHTML]="items[s_i]['CREAT_DATE'].replace('0000-00-00','Null')"></td>
+                                </tr>
+                                <tr>
+                                    <td >Reason for Rejection</td>
+                                    <td [innerHTML]="items[s_i]['REA_FOR_RE']"></td>
+                                </tr>
+                                <tr>
+                                    <td >Unloading Point</td>
+                                    <td [innerHTML]="items[s_i]['SHIP_POINT']"></td>
+                                </tr>
+                                <tr>
+                                    <td >Plant</td>
+                                    <td [innerHTML]="items[s_i]['PLANT']"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tbody>
+                                <tr>
+                                    <td >Item Category</td>
+                                    <td [innerHTML]="items[s_i]['ITEM_CATEG']"></td>
+                                    <td [innerHTML]="items[s_i]['SHORT_TEXT']"></td>
+                                </tr>
+                                <tr>
+                                    <td >Pricing date</td>
+                                    <td >{{date | date: 'yyyy-MM-dd'}}</td>
+                                </tr>
+                                <tr>
+                                    <td ></td>
+                                    <td [innerHTML]="items[s_i]['TARG_QTY_N']"></td>
+                                    <td [innerHTML]="items[s_i]['BASE_UOM']"></td>
+                                    <td [innerHTML]="items[s_i]['TARG_QTY_D']"></td>
+                                    <td [innerHTML]="items[s_i]['T_BAS_UNIT']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Bus transaction type</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td >Receiving Point</td>
+                                    <td [innerHTML]="items[s_i]['SHIP_POINT']"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="order" role="tabpanel" aria-labelledby="order-tab">
+                <div class="d-flex justify-content-between">
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tbody>
+                                <tr>
+                                    <td >Required Delivery date</td>
+                                    <td [innerHTML] = "header['DATE_TYPE']"></td>
+                                    <td>{{date | date: 'yyyy-MM-dd'}}</td>
+                                </tr>
+                                <tr>
+                                    <td >Pricing date</td>
+                                    <td>{{date | date: 'yyyy-MM-dd'}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tbody>
+                                <tr>
+                                    <td >Delivery Plant</td>
+                                    <td  [innerHTML]="header['PLANT']"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="proc" role="tabpanel" aria-labelledby="proc-tab">
+
+            </div>
+            <div class="tab-pane fade" id="ship" role="tabpanel" aria-labelledby="ship-tab">
+                <div class="d-flex justify-content-between">
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tbody>
+                                <tr>
+                                    <td >Complete dlv</td>
+                                    <td [innerHTML]="header['COMPL_DLV']"></td>
+                                </tr>
+                                <tr>
+                                    <td >Delivery block</td>
+                                    <td [innerHTML]="header['DLV_BLOCK']"></td>
+                                </tr>
+                                <tr>
+                                    <td >Overall status</td>
+                                    <td >open</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tbody>
+                                <tr>
+                                    <td >Total Weight</td>
+                                    <td [innerHTML]="items[s_i]['NET_WEIGHT']"></td>
+                                    <td [innerHTML]="items[s_i]['UNIT_OF_WT']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Volume</td>
+                                    <td [innerHTML]="items[s_i]['VOLUME']"></td>
+                                    <td [innerHTML]="items[s_i]['VOLUMEUNIT']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Delivery status</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="fast" role="tabpanel" aria-labelledby="fast-tab">
+                <div class="d-flex justify-content-between">
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tbody>
+                                <tr>
+                                    <td >Required delivery date</td>
+                                    <td [innerHTML] = "header['DATE_TYPE']"></td>
+                                    <td>{{date | date: 'yyyy-MM-dd'}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                        <table class="table table1">
+                            <tbody>
+                                <tr>
+                                    <td >Delivery plant</td>
+                                    <td [innerHTML] = "items[s_i]['PLANT']"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="reject" role="tabpanel" aria-labelledby="reject-tab">
+                <table class="table table1">
+                    <tbody>
+                        <tr>
+                            <td >Order Reason</td>
+                            <td [innerHTML]="header['ORD_REASON']"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <h3 style="padding-top:20px;">All Items</h3>
+    <div class="p-2 bd-highlight borders_1 table_bt_div" >
+        <table class="table_bt">
+            <thead>
+                <th>Item</th>
+                <th>Material No.</th>
+                <th>Order Quantity</th>
+                <th>Sales Unit</th>
+                <th>Alternative to Item</th>
+                <th>Description</th>
+                <th>Customer Material Number</th>
+                <th>Item Category</th>
+                <th>Higher Level Item</th>
+                <th>First Date</th>
+                <th>Plant</th>
+                <th>Batch</th>
+                <th>Amount</th>
+                <th>Currency</th>
+                <th>Net Price</th>
+                <th>Pricing Unit</th>
+                <th>Unit of Measure</th>
+                <th>Reason for Rejection</th>
+                <th>PO Item Number</th>
+                <th>Material Group 1</th>
+                <th>Material Group 2</th>
+                <th>Material Group 3</th>
+                <th>Material Group 4</th>
+                <th>Material Group 5</th>
+                <th>Division</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of items;let i=index" (onClick) = "clickedRow(i)">
+                    <td [innerHTML]="onNum(item['ITM_NUMBER'])"></td>
+                    <td [innerHTML]="onNum(item['MATERIAL'])"></td>
+                    <td [innerHTML]="item['REQ_QTY']"></td>
+                    <td [innerHTML]="item['SALES_UNIT']"></td>
+                    <td [innerHTML]="item['ALTERN_ITM']*1"></td>
+                    <td [innerHTML]="item['SHORT_TEXT']"></td>
+                    <td [innerHTML]="item['CUST_MAT22']"></td>
+                    <td [innerHTML]="item['ITEM_CATEG']"></td>
+                    <td [innerHTML]="item['HG_LV_ITEM']"></td>
+                    <td [innerHTML]="item['CREAT_DATE'].replace('0000-00-00','Null')"></td>
+                    <td [innerHTML]="item['PLANT']"></td>
+                    <td [innerHTML]="item['BATCH']"></td>
+                    <td style="text-align:right" [innerHTML]="item['NET_VALUE']"></td>
+                    <td style="text-align: right" [innerHTML]="item['CURRENCY']"></td>
+                    <td style="text-align:right" [innerHTML]="item['NET_PRICE']"></td>
+                    <td [innerHTML]="item['COND_P_UNIT']"></td>
+                    <td [innerHTML]="item['COND_UNIT']"></td>
+                    <td [innerHTML]="item['REA_FOR_RE']"></td>
+                    <td [innerHTML]="item['PO_ITM_NO']"></td>
+                    <td [innerHTML]="item['PRC_GROUP1']"></td>
+                    <td [innerHTML]="item['PRC_GROUP2']"></td>
+                    <td [innerHTML]="item['PRC_GROUP3']"></td>
+                    <td [innerHTML]="item['PRC_GROUP4']"></td>
+                    <td [innerHTML]="item['PRC_GROUP5']"></td>
+                    <td [innerHTML]="item['DIVISION']"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+<!-- </div> -->

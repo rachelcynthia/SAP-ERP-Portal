@@ -10,8 +10,9 @@
         <a *ngFor = "let item of tabItemList" class = "nav-link" href = "#" (click)= "onClickTab(item.id)" [ngClass] = "selected_tab == item.id ? ['bg-nav','text-white'] : ['text-norm']" [innerHTML]=item.text></a>
     </div>
     <div>
-        <app-about-company *ngIf="selected_tab == 'comp'"></app-about-company>
         <app-about-code *ngIf="selected_tab == 'code'"></app-about-code>
+        <app-about-company *ngIf="selected_tab == 'comp'"></app-about-company>
+        
         <app-about-contact *ngIf="selected_tab == 'contact'"></app-about-contact>
     </div>
 </div>

@@ -1,1 +1,30 @@
-<p>about-contact works!</p>
+<app-landing-header></app-landing-header>
+<div class="bg">
+  <div id="card">
+    <h1 class='display-6' style="text-align: center;">Send us a Message!</h1>
+    <hr class="my-4">
+
+    <form #messageForm="ngForm" (ngSubmit)="onSubmit(messageForm)">
+      <div class="form-group mb-3">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" ngModel>
+      </div>
+      <div class="form-group mb-3">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" ngModel>
+      </div>
+      <div class="form-group mb-3">
+        <label for="message">Message</label>
+        <textarea class="form-control" id="message" rows="3" name="message" placeholder="Type your Message"
+          ngModel></textarea>
+      </div>
+
+      <br />
+      <div style="text-align: center;">
+        <button type="submit" class="btn my_btn">Submit</button>
+      </div>
+    </form>
+
+  </div>
+</div>
+<app-copyright></app-copyright>
